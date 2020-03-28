@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\role;
+use App;
 use Illuminate\Http\Request;
 
 class RoleController extends Controller
@@ -14,7 +15,8 @@ class RoleController extends Controller
      */
     public function index()
     {
-        //
+        $roles2 = App\User::find(1)->role;
+        return $roles2;
     }
 
     /**
