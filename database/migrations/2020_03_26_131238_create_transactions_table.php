@@ -16,7 +16,7 @@ class CreateTransactionsTable extends Migration
         Schema::create('transactions', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->tinyInteger('order_id');
-            $table->tinyInteger('approved_by');
+            $table->tinyInteger('user_id');
             $table->timestamps();
         });
     }
