@@ -15,11 +15,12 @@ class CreateOrdersTable extends Migration
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('owner');
+            $table->string('owner',100);
             $table->string('phone');
-            $table->string('destination');
+            $table->string('destination',100);
             $table->double('total_price');
-            $table->tinyInteger('status_id');
+            $table->bigInteger('status_id')->unsigned();
+            $table->foreign('status_id')->references('id')->on('statuses');
             $table->timestamps();
         });
     }

@@ -15,8 +15,10 @@ class CreateTransactionsTable extends Migration
     {
         Schema::create('transactions', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->tinyInteger('order_id');
-            $table->tinyInteger('approved_by');
+            $table->bigInteger('order_id')->unsigned();
+            $table->bigInteger('user_id')->unsigned();
+            $table->foreign('order_id')->references('id')->on('orders');
+            $table->foreign('user_id')->references('id')->on('users');
             $table->timestamps();
         });
     }
