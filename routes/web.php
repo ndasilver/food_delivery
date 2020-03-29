@@ -18,7 +18,6 @@
 Route::get('/', function () {
     return view('public.home');
 });
+Route::get('admin','AdminController@index');
 Auth::routes();
-
-Route::get('test','RoleController@index');
 

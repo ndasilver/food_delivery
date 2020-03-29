@@ -1,8 +1,14 @@
-# php:
-#   preset: laravel
+ php:
+   preset: laravel
 #   disabled:
 #     - unused_use
 #   finder:
+#   exclude:
+#        - modules
+#        - node_modules
+#        - storage
+#        - vendor
+#    css: true
 #     not-name:
 #       - index.php
 #       - server.php
@@ -10,19 +16,18 @@
 #   finder:
 #     not-name:
 #       - webpack.mix.js
-# css: true
-php:
-  preset: laravel
-  risky: true
-  enabled:
-    - long_array_syntax
-  disabled:
-    - align_double_arrow
-  finder:
-    exclude:
-      - modules
-      - node_modules
-      - storage
-      - vendor
-    name: "*.php"
-    not-name: "*.blade.php"
+#php:
+#  preset: laravel
+#  risky: true
+#  enabled:
+#    - long_array_syntax
+#  disabled:
+#    - align_double_arrow
+#  finder:
+#    exclude:
+#      - modules
+#      - node_modules
+#      - storage
+#      - vendor
+#    name: "*.php"
+#    not-name: "*.blade.php"
