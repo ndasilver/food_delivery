@@ -1,15 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="be48b4a6-c9c6-4cff-aeeb-60ce92593f1b" name="Default" comment="">
+    <list default="true" id="4551a463-ea30-4b6a-a7f8-d4ead0926467" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/resources/views/public/layouts/master.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/public/home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/public/home.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ComposerSettings" synchronizationState="SYNCHRONIZE">
+  <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
     <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
     <execution>
       <executable />
@@ -137,7 +139,7 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="be48b4a6-c9c6-4cff-aeeb-60ce92593f1b" name="Default" comment="" />
+      <changelist id="4551a463-ea30-4b6a-a7f8-d4ead0926467" name="Default Changelist" comment="" />
       <created>1585220719384</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
@@ -145,6 +147,7 @@
       <workItem from="1585220759106" duration="6721000" />
       <workItem from="1585237284149" duration="18667000" />
       <workItem from="1585431915718" duration="3549000" />
+      <workItem from="1585485131258" duration="34000" />
     </task>
     <servers />
   </component>
