@@ -18,5 +18,7 @@
 Route::get('/', function () {
     return view('public.home');
 });
+Auth::routes();
 
 Route::get('test','RoleController@index');
+
