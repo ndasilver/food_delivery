@@ -9,7 +9,7 @@
 @stop
 
 @section('content')
-    <p>Welcome to the dashboard</p>
+    @yield('content-admin')
 @stop
 
 @section('css')
