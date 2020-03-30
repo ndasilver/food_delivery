@@ -15,9 +15,19 @@
 //    return view('welcome');
 //});
 
+//--------------- Public Routes -----------------
 Route::get('/', function () {
     return view('public.home');
-});
+})->name('home');
+
+Route::get('/cart', function () {
+    return view('public.cart');
+})->name('cart');
+
+
+//--------------------------------------------------
+
+
 Route::get('admin','AdminController@index');
 Auth::routes();
 

@@ -172,3 +172,40 @@ ul.side-choices {
         font-size: 14px;
     }
 }
+
+
+/* ---------------------- Cart page styles --------------------------------------*/
+
+.jumbotron.cart-page {
+    background-blend-mode: overlay;
+    background-color: #00295499;
+    padding-top: 40px !important;
+    padding-bottom: 40px !important;
+}
+
+.page-title {
+    font-size: 62px;
+    font-weight: bolder;
+    color: white;
+}
+
+.cart {
+    margin-top: 60px;
+}
+
+.cart table {
+    font-size: 14px;
+}
+
+a.btn-cart-page {
+    width: 50%;
+}
+
+.cart-action {
+    font-size: 24px;
+    color: black;
+}
+
+.cart-action a {
+    color: black !important;
+}
