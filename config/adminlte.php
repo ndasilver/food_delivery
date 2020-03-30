@@ -241,6 +241,11 @@ return [
             'url'  => 'admin/settings',
             'icon' => 'fas fa-fw fa-lock',
         ],
+        [
+            'text' => 'Logout',
+            'url'  => 'logout',
+            'icon' => 'fas fa-sign-out-alt',
+        ],
     ],
 
     /*
