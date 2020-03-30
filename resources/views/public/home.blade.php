@@ -67,7 +67,8 @@
                         <h4>Classic special</h4>
                     </div>
                     <div class="menu-desc">
-                        <p>Mixed rice with (stripes of beef/ fish/ chicken) served with chips, fried banana + salad
+                        <p>
+                            Mixed rice with (stripes of beef/ fish/ chicken) served with chips, fried banana + salad
                         </p>
                     </div>
 

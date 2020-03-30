@@ -80,7 +80,7 @@
                         <div class="dropdown-divider"></div>
                         <div>
                                 <span class="float-left">
-                                    <a href="#" class="btn btn-sm btn-primary">
+                                    <a href="{{ route('cart') }}" class="btn btn-sm btn-primary">
                                         Go to cart
                                     </a>
                                 </span>
