@@ -232,6 +232,11 @@ return [
             'icon' => 'fas fa-store-alt'
         ],
         [
+            'text' => 'categories',
+            'url'  => 'admin/categories',
+            'icon' => 'fas fa-grip-horizontal'
+        ],
+        [
             'text' => 'Orders',
             'url'  => 'admin/orders',
             'icon' => 'fas fa-shopping-bag',

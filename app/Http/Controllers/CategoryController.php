@@ -14,7 +14,9 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        //
+        $categories = Category::all();
+
+        return view('Admin.categories.index')->with('categories', $categories);
     }
 
     /**
@@ -35,7 +37,14 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $category = new Category();
+
+        $category->name = $request['name'];
+
+        $category->save();
+
+        return redirect()->back()
+            ->with('success', 'Category Successfully created!');
     }
 
     /**

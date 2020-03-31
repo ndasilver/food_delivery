@@ -31,3 +31,6 @@ Route::get('/cart', function () {
 Route::get('admin','AdminController@index');
 Auth::routes();
 
+Route::resource('admin/categories', 'CategoryController')->names([
+    'store' => 'categories.store'
+]);
