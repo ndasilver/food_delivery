@@ -14,8 +14,10 @@ class MenuController extends Controller
      */
     public function index()
     {
+        $menu = Menu::all();
         $page_title = "Menu";
-        return view('Admin.menu.menu',compact('page_title'));
+//        return $menu;
+        return view('Admin.menu.menu',compact('page_title','menu'));
     }
 
     /**
@@ -25,7 +27,7 @@ class MenuController extends Controller
      */
     public function create()
     {
-        //
+
     }
 
     /**
@@ -36,7 +38,14 @@ class MenuController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Menu::create([
+            'name'=> $request->name,
+            'image'=> '',
+            'description' => $request->description,
+            'price'=> $request->price,
+            'category_id'=> $request->category,
+        ]);
+        return redirect()->back()->with('success','Item created successfully');
     }
 
     /**

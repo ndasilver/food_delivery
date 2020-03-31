@@ -8,30 +8,36 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
+            <form role="form" method="post" action="{{ route('menu.store') }}">
+                @csrf
             <div class="modal-body">
-                <form role="form">
                     <div class="card-body">
                         <div class="form-group">
                             <label for="exampleInputEmail1">Name</label>
-                            <input type="text" class="form-control"  placeholder="Item Name">
+                            <input required="" name="name" type="text" class="form-control"  placeholder="Item Name">
                         </div>
                         <div class="form-group">
                             <label for="exampleInputEmail1">Description</label>
-                            <input type="text" class="form-control"  placeholder="Item Description">
+                            <input required="" name="description" type="text" class="form-control"  placeholder="Item Description">
                         </div>
                         <div class="form-group">
                             <label for="exampleInputEmail1">Price</label>
-                            <input type="number" class="form-control"  placeholder="Item Price">
+                            <input required="" type="number" name="price" class="form-control"  placeholder="Item Price">
                         </div>
                         <div class="form-group">
-                            <label for="exampleInputEmail1">Category</label>
-                            <input type="text" class="form-control"  placeholder="Item Category">
+                            <label>Category</label>
+                            <select class="form-control" name="category">
+                                <option disabled="" selected="">Select Category</option>
+                                @foreach(\App\Category::all() as $category)
+                                <option value="{{$category->id}}">{{ $category->name }}</option>
+                                    @endforeach
+                            </select>
                         </div>
                         <div class="form-group">
                             <label for="exampleInputFile">Image</label>
                             <div class="input-group">
                                 <div class="custom-file">
-                                    <input type="file" class="custom-file-input" id="exampleInputFile">
+                                    <input type="file" class="custom-file-input" id="exampleInputFile" name="image">
                                     <label class="custom-file-label" for="exampleInputFile">Choose file</label>
                                 </div>
                                 <div class="input-group-append">
@@ -41,13 +47,14 @@
                         </div>
                     </div>
                     <!-- /.card-body -->
-                </form>
+
 
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
+                <button type="submit" class="btn btn-success">Save changes</button>
             </div>
+            </form>
         </div>
     </div>
 </div>

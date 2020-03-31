@@ -28,7 +28,8 @@ Route::get('/cart', function () {
 //--------------------------------------------------
 
 
-Route::get('admin','AdminController@index');
-Route::get('admin/menu','MenuController@index');
+Route::get('admin','AdminController@index')->name('Admin Dashboard');
+Route::resource('admin/menu','MenuController');
+//Route::post('admin/menu','MenuController@store')->name('Admin Create menu item');
 Auth::routes();
 

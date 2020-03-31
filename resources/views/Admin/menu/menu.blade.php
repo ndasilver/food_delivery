@@ -4,7 +4,7 @@
     <div class="row mb-2">
         <div class="col-12">
             <!-- Button trigger modal -->
-            <button id="addMenuModalE" type="button" class="btn btn-primary" data-toggle="modal" data-target="addMenuModal">
+            <button id="addMenuModalE" type="button" class="btn btn-info" data-toggle="modal" data-target="addMenuModal">
                 <i class="fa fa-plus"></i>
                 Add menu
             </button>
@@ -34,38 +34,24 @@
                         </tr>
                         </thead>
                         <tbody>
-                        <tr>
-                            <td>1.</td>
-                            <td>Update software</td>
-                            <td>
-                                <div class="progress progress-xs">
-                                    <div class="progress-bar progress-bar-danger" style="width: 55%"></div>
-                                </div>
-                            </td>
-                            <td><span class="badge bg-danger">55%</span></td>
-                            <td>1,500 Frw</td>
-                            <td>Italian cuisine</td>
-                            <td>
-                                <a href="#">Edit</a>|
-                                <a href="#">Delete</a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>2.</td>
-                            <td>Clean database</td>
-                            <td>
-                                <div class="progress progress-xs">
-                                    <div class="progress-bar progress-bar-danger" style="width: 55%"></div>
-                                </div>
-                            </td>
-                            <td><span class="badge bg-danger">55%</span></td>
-                            <td>1,500 Frw</td>
-                            <td>Italian cuisine</td>
-                            <td>
-                                <a href="#">Edit</a>|
-                                <a href="#">Delete</a>
-                            </td>
-                        </tr>
+                        @foreach($menu as $menus)
+                            <tr>
+                                <td>{{ $menus->id}}</td>
+                                <td>{{ $menus->name }}</td>
+                                <td>
+                                    <div class="progress progress-xs">
+                                        <div class="progress-bar progress-bar-danger" style="width: 55%"></div>
+                                    </div>
+                                </td>
+                                <td>{{ $menus->description }}</td>
+                                <td>{{ number_format($menus->price) }}</td>
+                                <td>{{ $menus->category->name }}</td>
+                                <td>
+                                    <a href="#">Edit</a>|
+                                    <a href="#">Delete</a>
+                                </td>
+                            </tr>
+                            @endforeach
 
                         </tbody>
                     </table>
