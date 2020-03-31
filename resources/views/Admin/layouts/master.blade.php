@@ -5,7 +5,7 @@
 @section('title', 'Dashboard')
 
 @section('content_header')
-    <h1>Dashboard</h1>
+    <h1>{{$page_title ?? '' }}</h1>
 @stop
 
 @section('content')
@@ -18,4 +18,5 @@
 
 @section('js')
     <script> console.log('Hi!'); </script>
+    <script type="text/javascript" src="/js/adminScript.js"></script>
 @stop

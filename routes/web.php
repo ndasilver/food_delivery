@@ -29,5 +29,6 @@ Route::get('/cart', function () {
 
 
 Route::get('admin','AdminController@index');
+Route::get('admin/menu','MenuController@index');
 Auth::routes();
 

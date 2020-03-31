@@ -14,7 +14,8 @@ class MenuController extends Controller
      */
     public function index()
     {
-        //
+        $page_title = "Menu";
+        return view('Admin.menu.menu',compact('page_title'));
     }
 
     /**
