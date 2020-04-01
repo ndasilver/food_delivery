@@ -227,8 +227,8 @@ return [
         ],
 //        ['header' => 'account_settings'],
         [
-            'text' => 'products',
-            'url'  => 'admin/products',
+            'text' => 'Menu',
+            'url'  => 'admin/menu',
             'icon' => 'fas fa-store-alt'
         ],
         [
@@ -245,11 +245,6 @@ return [
             'text' => 'Settings',
             'url'  => 'admin/settings',
             'icon' => 'fas fa-fw fa-lock',
-        ],
-        [
-            'text' => 'Logout',
-            'url'  => 'logout',
-            'icon' => 'fas fa-sign-out-alt',
         ],
     ],
 

@@ -5,7 +5,8 @@
 @section('title', 'Dashboard')
 
 @section('content_header')
-    <h1>Dashboard</h1>
+    <h1>{{$page_title ?? '' }}</h1>
+
     @foreach (['danger', 'warning', 'success', 'info'] as $msg)
         @if(Session::has($msg))
             <div class="alert alert-{{ $msg }} alert-dismissible">
@@ -27,4 +28,5 @@
 
 @section('js')
     <script> console.log('Hi!'); </script>
+    <script type="text/javascript" src="/js/adminScript.js"></script>
 @stop
