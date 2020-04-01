@@ -46,9 +46,10 @@
                                 <td>{{ $menus->description }}</td>
                                 <td>{{ number_format($menus->price) }}</td>
                                 <td>{{ $menus->category->name }}</td>
-                                <td>
-                                    <a href="#">Edit</a>|
-                                    <a href="#">Delete</a>
+                                <td class="actionTd">
+                                    <input type="hidden" class="menuId" value="{{ $menus->id }}">
+                                    <a href="#" class="editMenuModalButton">Edit</a>|
+                                    <a href="#" class="deleteMenuButton">Delete</a>
                                 </td>
                             </tr>
                             @endforeach
@@ -70,5 +71,6 @@
 
         </div>
     </div>
-@include('Admin.menu.addMenuModal')
+    @include('Admin.menu.addMenuModal')
+    @include('Admin.menu.editMenuModal')
     @endsection
