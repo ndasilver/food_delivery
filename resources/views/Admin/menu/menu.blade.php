@@ -20,7 +20,7 @@
                     <h3 class="card-title">List of Menu</h3>
                 </div>
                 <!-- /.card-header -->
-                <div class="card-body">
+                <div class="card-body table-responsive p-0">
                     <table class="table table-bordered">
                         <thead>
                         <tr>
@@ -38,10 +38,8 @@
                             <tr>
                                 <td>{{ $menus->id}}</td>
                                 <td>{{ $menus->name }}</td>
-                                <td>
-                                    <div class="progress progress-xs">
-                                        <div class="progress-bar progress-bar-danger" style="width: 55%"></div>
-                                    </div>
+                                <td style="text-align: center">
+                                    <img src="/public_assets/images/{{$menus->image}}" class="img-thumbnail" alt="Food Image here" style="width: 60px;height: 60px;padding: 0;margin: 0"/>
                                 </td>
                                 <td>{{ $menus->description }}</td>
                                 <td>{{ number_format($menus->price) }}</td>
@@ -59,13 +57,7 @@
                 </div>
                 <!-- /.card-body -->
                 <div class="card-footer clearfix">
-                    <ul class="pagination pagination-sm m-0 float-right">
-                        <li class="page-item"><a class="page-link" href="#">«</a></li>
-                        <li class="page-item"><a class="page-link" href="#">1</a></li>
-                        <li class="page-item"><a class="page-link" href="#">2</a></li>
-                        <li class="page-item"><a class="page-link" href="#">3</a></li>
-                        <li class="page-item"><a class="page-link" href="#">»</a></li>
-                    </ul>
+                    {{ $menu->links() }}
                 </div>
             </div>
 

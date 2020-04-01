@@ -8,7 +8,7 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <form role="form" method="post" action="{{ route('menu.store') }}">
+            <form role="form" enctype="multipart/form-data" method="post" action="{{ route('menu.store') }}">
                 @csrf
             <div class="modal-body">
                     <div class="card-body">
