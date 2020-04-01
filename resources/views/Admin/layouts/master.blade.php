@@ -6,6 +6,16 @@
 
 @section('content_header')
     <h1>{{$page_title ?? '' }}</h1>
+
+    @foreach (['danger', 'warning', 'success', 'info'] as $msg)
+        @if(Session::has($msg))
+            <div class="alert alert-{{ $msg }} alert-dismissible">
+                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                <h4> Alert!</h4>
+                {{ Session::get($msg) }}
+            </div>
+        @endif
+    @endforeach
 @stop
 
 @section('content')
