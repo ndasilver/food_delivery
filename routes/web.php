@@ -33,3 +33,6 @@ Route::resource('admin/menu','MenuController');
 //Route::post('admin/menu','MenuController@store')->name('Admin Create menu item');
 Auth::routes();
 
+Route::resource('admin/categories', 'CategoryController')->names([
+    'store' => 'categories.store'
+]);
