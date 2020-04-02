@@ -20,7 +20,7 @@
 <body>
 
 <nav class="navbar navbar-light navbar-expand-md bg-faded justify-content-center">
-    <a href="/" class="navbar-brand d-flex w-50 mr-auto">
+    <a href="/" class="navbar-brand d-flex mr-auto" style="width: 34%!important;">
         <img src="./public_assets/images/cp logo.png" width="50" height="50" class="d-inline-block align-top" alt="Top-logo">
         <span class="brand-name"> Classic Hotel </span>
     </a>
@@ -36,34 +36,17 @@
                 All <span class="sr-only">(current)</span>
                 </a>
             </li>
+            @foreach(\App\Category::take(5)->get() as $category)
+
             <li class="nav-item">
                 
                 <a class="nav-link" href="#">
                 <img src="./public_assets/images/menu-img.jpeg" class="nav-img" alt="menu-item" />
-                Main Menu
+                {{$category->name}}
                 </a>
             </li>
-            <li class="nav-item">
-                
-                <a class="nav-link" href="#">
-                <img src="./public_assets/images/menu-img.jpeg" class="nav-img" alt="menu-item" />
-                Special Order
-                </a>
-            </li>
-            <li class="nav-item">
-                
-                <a class="nav-link" href="#">
-                <img src="./public_assets/images/menu-img.jpeg" class="nav-img" alt="menu-item" />
-                Drinks
-                </a>
-            </li>
-            <li class="nav-item">
-                
-                <a class="nav-link" href="#">
-                <img src="./public_assets/images/menu-img.jpeg" class="nav-img" alt="menu-item" />
-                Foreign Menu
-                </a>
-            </li>
+            @endforeach
+
         </ul>
         <ul class="nav navbar-nav ml-auto w-100 justify-content-end">
             <li class="nav-item dropdown">
