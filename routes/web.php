@@ -16,13 +16,10 @@
 //});
 
 //--------------- Public Routes -----------------
-Route::get('/', function () {
-    return view('public.home');
-})->name('home');
 
-Route::get('/cart', function () {
-    return view('public.cart');
-})->name('cart');
+Route::get('/', 'PublicController@index')->name('home');
+Route::get('/cart', 'PublicController@cart')->name('cart');
+
 
 
 //--------------------------------------------------

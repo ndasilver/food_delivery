@@ -29,121 +29,51 @@
     </div>
 
     <div class="row menu-items">
-        <div class="col-md">
-            <div class="row">
-                <div class="col-4">
-                    <img src="./public_assets/images/menu-img.jpeg" alt="menu-image" class="img-thumbnail menu-img">
-                </div>
-                <div class="col-8">
-                    <div class="menu-title">
-                        <h4>Classic special</h4>
-                    </div>
-                    <div class="menu-desc">
-                        <p>Mixed rice with (stripes of beef/ fish/ chicken) served with chips, fried banana + salad
-                        </p>
-                    </div>
+        <?php $col_counter = 0 ?>
+        @foreach($products as $product)
 
-                    <div class="">
+                <div class="col-md">
+                    <div class="row">
+                        <div class="col-4">
+                            <img src="./public_assets/images/{{ $product->image }}" alt="menu-image" class="img-thumbnail menu-img">
+                        </div>
+                        <div class="col-8">
+                            <div class="menu-title">
+                                <h4>{{ $product->name }}</h4>
+                            </div>
+                            <div class="menu-desc">
+                                <p>
+                                    {{ $product->description }}
+                                </p>
+                            </div>
+
+                            <div class="">
                             <span class="price float-left">
-                                <h5>Rwf 6500</h5>
+                                <h5>{{ $product->price }}</h5>
                             </span>
 
-                        <span class="add-to-cart float-right">
+                                <span class="add-to-cart float-right">
                                 <button type="button" class="btn btn-primary btn-sm btn-add-to-cart" data-toggle="modal" data-target="#addToCartModal">
                                     <i class="fa fa-plus-circle"></i> Add to cart
                                 </button>
                             </span>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </div>
-        <div class="col-md">
-            <div class="row">
-                <div class="col-4">
-                    <img src="./public_assets/images/menu-img.jpeg" alt="menu-image" class="img-thumbnail menu-img">
-                </div>
-                <div class="col-8">
-                    <div class="menu-title">
-                        <h4>Classic special</h4>
-                    </div>
-                    <div class="menu-desc">
-                        <p>
-                            Mixed rice with (stripes of beef/ fish/ chicken) served with chips, fried banana + salad
-                        </p>
-                    </div>
 
-                    <div class="">
-                            <span class="price float-left">
-                                <h5>Rwf 6500</h5>
-                            </span>
+            <?php
+                $col_counter = $col_counter + 1;
+                if($col_counter == 2){
+                    echo "<div class='w-100'></div>";
 
-                        <span class="add-to-cart float-right">
-                                <button type="button" class="btn btn-primary btn-sm btn-add-to-cart" data-toggle="modal" data-target="#addToCartModal">
-                                    <i class="fa fa-plus-circle"></i> Add to cart
-                                </button>
-                            </span>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="w-100"></div>
-        <div class="col-md">
-            <div class="row">
-                <div class="col-4">
-                    <img src="./public_assets/images/menu-img.jpeg" alt="menu-image" class="img-thumbnail menu-img">
-                </div>
-                <div class="col-8">
-                    <div class="menu-title">
-                        <h4>Classic special</h4>
-                    </div>
-                    <div class="menu-desc">
-                        <p>Mixed rice with (stripes of beef/ fish/ chicken) served with chips, fried banana + salad
-                        </p>
-                    </div>
+                    $col_counter = 0;
+                }
 
-                    <div class="">
-                            <span class="price float-left">
-                                <h5>Rwf 6500</h5>
-                            </span>
+                ?>
 
-                        <span class="add-to-cart float-right">
-                                <button type="button" class="btn btn-primary btn-sm btn-add-to-cart" data-toggle="modal" data-target="#addToCartModal">
-                                    <i class="fa fa-plus-circle"></i> Add to cart
-                                </button>
-                            </span>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-md">
-            <div class="row">
-                <div class="col-4">
-                    <img src="./public_assets/images/menu-img.jpeg" alt="menu-image" class="img-thumbnail menu-img">
-                </div>
-                <div class="col-8">
-                    <div class="menu-title">
-                        <h4>Classic special</h4>
-                    </div>
-                    <div class="menu-desc">
-                        <p>Mixed rice with (stripes of beef/ fish/ chicken) served with chips, fried banana + salad
-                        </p>
-                    </div>
+        @endforeach
 
-                    <div class="">
-                            <span class="price float-left">
-                                <h5>Rwf 6500</h5>
-                            </span>
-
-                        <span class="add-to-cart float-right">
-
-                                <button type="button" class="btn btn-primary btn-sm btn-add-to-cart" data-toggle="modal" data-target="#addToCartModal">
-                                    <i class="fa fa-plus-circle"></i> Add to cart
-                                </button>
-                            </span>
-                    </div>
-                </div>
-            </div>
-        </div>
     </div>
 </div>
 
