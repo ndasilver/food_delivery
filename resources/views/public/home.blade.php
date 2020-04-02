@@ -29,12 +29,13 @@
     </div>
 
     <div class="row menu-items">
+        <?php $col_counter = 0 ?>
         @foreach($products as $product)
-            <?php $col_counter = 0 ?>
+
                 <div class="col-md">
                     <div class="row">
                         <div class="col-4">
-                            <img src="./public_assets/images/menu-img.jpeg" alt="menu-image" class="img-thumbnail menu-img">
+                            <img src="./public_assets/images/{{ $product->image }}" alt="menu-image" class="img-thumbnail menu-img">
                         </div>
                         <div class="col-8">
                             <div class="menu-title">
