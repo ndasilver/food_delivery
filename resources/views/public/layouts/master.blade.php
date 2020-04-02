@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- main custom css -->
-    <link rel="stylesheet" href="./public_assets/css/main.css" />
+    <link rel="stylesheet" href="/public_assets/css/main.css" />
 
     <!-- Bootstrap css-->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
@@ -21,7 +21,7 @@
 
 <nav class="navbar navbar-light navbar-expand-md bg-faded justify-content-center">
     <a href="/" class="navbar-brand d-flex mr-auto" style="width: 34%!important;">
-        <img src="./public_assets/images/cp logo.png" width="50" height="50" class="d-inline-block align-top" alt="Top-logo">
+        <img src="/public_assets/images/cp logo.png" width="50" height="50" class="d-inline-block align-top" alt="Top-logo">
         <span class="brand-name"> Classic Hotel </span>
     </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsingNavbar3">
@@ -30,18 +30,18 @@
     <div class="navbar-collapse collapse w-100" id="collapsingNavbar3">
         <ul class="navbar-nav w-100 justify-content-center text-center">
             <li class="nav-item active">
-                
-                <a class="nav-link" href="#">
-                <img src="./public_assets/images/menu-img.jpeg" class="nav-img" alt="menu-item" />
+
+                <a class="nav-link" href="{{ route('home') }}">
+                <img src="/public_assets/images/menu-img.jpeg" class="nav-img" alt="menu-item" />
                 All <span class="sr-only">(current)</span>
                 </a>
             </li>
             @foreach(\App\Category::take(5)->get() as $category)
 
             <li class="nav-item">
-                
-                <a class="nav-link" href="#">
-                <img src="./public_assets/images/menu-img.jpeg" class="nav-img" alt="menu-item" />
+
+                <a class="nav-link" href="{{ route('category', $category->id) }}">
+                <img src="/public_assets/images/menu-img.jpeg" class="nav-img" alt="menu-item" />
                 {{$category->name}}
                 </a>
             </li>
