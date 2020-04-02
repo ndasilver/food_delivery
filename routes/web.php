@@ -24,12 +24,12 @@ Route::get('/cart', 'PublicController@cart')->name('cart');
 
 //--------------------------------------------------
 
-
-Route::get('admin','AdminController@index')->name('Admin Dashboard');
-Route::resource('admin/menu','MenuController');
-//Route::post('admin/menu','MenuController@store')->name('Admin Create menu item');
 Auth::routes();
-
-Route::resource('admin/categories', 'CategoryController')->names([
-    'store' => 'categories.store'
-]);
+Route::middleware(['auth'])->group(function (){
+    Route::get('admin','AdminController@index')->name('Admin Dashboard');
+    Route::resource('admin/menu','MenuController');
+//Route::post('admin/menu','MenuController@store')->name('Admin Create menu item');
+    Route::resource('admin/categories', 'CategoryController')->names([
+        'store' => 'categories.store'
+    ]);
+});

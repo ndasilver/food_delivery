@@ -14,9 +14,8 @@ class MenuController extends Controller
      */
     public function index()
     {
-        $menu = Menu::all();
+        $menu = Menu::paginate(15);
         $page_title = "Menu";
-//        return $menu;
         return view('Admin.menu.menu',compact('page_title','menu'));
     }
 
@@ -38,9 +37,16 @@ class MenuController extends Controller
      */
     public function store(Request $request)
     {
+        $this->validate($request,['image'=>'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048']);
+        if ($request->hasFile('image')){
+            $image2 = $request->file('image');
+            $image_name = time().'.'.$image2->getClientOriginalExtension();
+            $destinationPath = public_path('/public_assets/images');
+            $image2->move($destinationPath,$image_name);
+        }
         Menu::create([
             'name'=> $request->name,
-            'image'=> '',
+            'image'=> $image_name,
             'description' => $request->description,
             'price'=> $request->price,
             'category_id'=> $request->category,
@@ -54,9 +60,10 @@ class MenuController extends Controller
      * @param  \App\menu  $menu
      * @return \Illuminate\Http\Response
      */
-    public function show(menu $menu)
+    public function show($menu)
     {
-        //
+        $menu2 = Menu::with(['category'])->where('id',$menu)->get();
+        return $menu2;
     }
 
     /**
@@ -67,7 +74,7 @@ class MenuController extends Controller
      */
     public function edit(menu $menu)
     {
-        //
+
     }
 
     /**
@@ -79,7 +86,15 @@ class MenuController extends Controller
      */
     public function update(Request $request, menu $menu)
     {
-        //
+        $this->validate($request,['image'=>'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048']);
+        if ($request->hasFile('image')){
+            $image2 = $request->file('image');
+            $image_name = time().'.'.$image2->getClientOriginalExtension();
+            $destinationPath = public_path('/public_assets/images');
+            $image2->move($destinationPath,$image_name);
+        }
+        Menu::where('id',$menu->id)->update(['name'=>$request->name,'description'=>$request->description,'price'=>$request->price,'image'=>$image_name,'category_id'=>$request->category]);
+        return redirect()->back()->with('success','Item upadated successfully');
     }
 
     /**

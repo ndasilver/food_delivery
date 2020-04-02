@@ -7,7 +7,7 @@
 
                 <div class="info-box-content">
                     <span class="info-box-text">Users</span>
-                    <span class="info-box-number">4</span>
+                    <span class="info-box-number">{{ \App\User::all()->count() }}</span>
                 </div>
                 <!-- /.info-box-content -->
             </div>
@@ -21,7 +21,7 @@
                 <div class="info-box-content">
                     <span class="info-box-text">Total Orders</span>
                     <span class="info-box-number">
-                  10
+                  {{ \App\Order::all()->count() }}
                 </span>
                 </div>
                 <!-- /.info-box-content -->
@@ -35,7 +35,9 @@
 
                 <div class="info-box-content">
                     <span class="info-box-text">Total Products</span>
-                    <span class="info-box-number">41,410</span>
+                    <span class="info-box-number">
+                        {{ \App\Menu::all()->count() }}
+                    </span>
                 </div>
                 <!-- /.info-box-content -->
             </div>
@@ -53,7 +55,7 @@
 
                 <div class="info-box-content">
                     <span class="info-box-text">Total Sales</span>
-                    <span class="info-box-number">760</span>
+                    <span class="info-box-number">{{ \App\Order::all()->sum('total_price') }}</span>
                 </div>
                 <!-- /.info-box-content -->
             </div>
