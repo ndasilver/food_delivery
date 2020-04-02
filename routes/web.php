@@ -19,6 +19,7 @@
 
 Route::get('/', 'PublicController@index')->name('home');
 Route::get('/cart', 'PublicController@cart')->name('cart');
+Route::get('/category/{id}', 'PublicController@category')->name('category');
 
 
 
