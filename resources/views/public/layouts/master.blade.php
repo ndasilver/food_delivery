@@ -31,10 +31,6 @@
         <ul class="navbar-nav w-100 justify-content-center text-center">
             <li class="nav-item active">
 
-                <a class="nav-link" href="#">
-                <img src="./public_assets/images/menu-img.jpeg" class="nav-img" alt="menu-item" />
-                    <div class="menu-text">All</div>
-                    <span class="sr-only">(current)</span>
                 <a class="nav-link" href="{{ route('home') }}">
                 <img src="/public_assets/images/menu-img.jpeg" class="nav-img" alt="menu-item" />
                 All <span class="sr-only">(current)</span>
@@ -43,23 +39,14 @@
             @foreach(\App\Category::take(5)->get() as $category)
 
             <li class="nav-item">
-                <a class="nav-link" href="#">
-                <img src="./public_assets/images/menu-img.jpeg" class="nav-img" alt="menu-item" />
-                    <div class="menu-text">
+
                 <a class="nav-link" href="{{ route('category', $category->id) }}">
                 <img src="/public_assets/images/menu-img.jpeg" class="nav-img" alt="menu-item" />
                 {{$category->name}}
-                    </div>
                 </a>
             </li>
             @endforeach
-            <li class="nav-item">
 
-                <a class="nav-link" href="#">
-                    <img src="./public_assets/images/menu-img.jpeg" class="nav-img" alt="menu-item" />
-                    <div class="menu-text"> More</div>
-                </a>
-            </li>
         </ul>
         <ul class="nav navbar-nav ml-auto w-100 justify-content-end">
             <li class="nav-item dropdown">
