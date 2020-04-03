@@ -46,7 +46,13 @@
                 </a>
             </li>
             @endforeach
+            <li class="nav-item">
 
+                <a class="nav-link" href="#">
+                    <img src="./public_assets/images/menu-img.jpeg" class="nav-img" alt="menu-item" />
+                    More
+                </a>
+            </li>
         </ul>
         <ul class="nav navbar-nav ml-auto w-100 justify-content-end">
             <li class="nav-item dropdown">
