@@ -1,3 +1,6 @@
+.menu-text{
+    white-space: nowrap;
+}
 nav {
     background-color: teal;
     /* For browsers that do not support gradients */
@@ -172,7 +175,15 @@ ul.side-choices {
         font-size: 14px;
     }
 }
-
+@media screen and (max-width: 600px) {
+    img.nav-img{
+        float: left;
+    }
+    .menu-text{
+        margin-left: 80px;
+        text-align: left;
+    }
+}
 
 /* ---------------------- Cart page styles --------------------------------------*/
 
