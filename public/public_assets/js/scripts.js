@@ -29,6 +29,30 @@ const displayPrice = (price) => {
     return $('#cart-price').html(price);
 }
 
+// Functions to display/hide change box
+$(function() {
+    $('#cash').click(function() {
+        if ($(this).is(':checked')) {
+            $('#change-box').show();
+        } else {
+            $('#change-box').hide();
+        }
+    });
+});
+
+$(function() {
+    $('#momo').click(function() {
+        if ($(this).is(':checked')) {
+            $('#change-box').hide();
+        } else {
+            $('#change-box').show();
+        }
+    });
+});
+
+
+
+// Function to disable/enable checkout button
 $(function() {
     $('#agree').click(function() {
         if ($(this).is(':checked')) {

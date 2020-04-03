@@ -34,14 +34,19 @@
                         <label for="contact">Contact</label>
                         <input type="text" class="form-control" id="contact" name="contact" placeholder="Phone Number">
                     </div>
-
+                    <hr/>
                     <div class="form-group">
-                        <label for="change">Will you need change on delivery?</label>
+                        <label for="change"><strong>Payment Option</strong></label>
                         <br/>
-                        <input type="radio" name="change" />
-                        <label>Yes</label>
-                        <input type="radio" name="change" checked/>
-                        <label>No</label>
+                        <input type="radio" name="payment" id="momo" checked/>
+                        <label>Mobile Money</label>
+                        <input type="radio" name="payment" id="cash"/>
+                        <label>Cash on Delivery</label>
+                    </div>
+
+                    <div class="form-group" id="change-box" style="display: none;">
+                        <label for="change">Please type in below how much you need change for.</label>
+                        <input type="text" class="form-control" id="change" name="change" placeholder="Eg: Rwf 2000">
                     </div>
 
                 </div>
