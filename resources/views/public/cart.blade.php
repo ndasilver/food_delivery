@@ -7,7 +7,7 @@
     </div>
 </div>
     <div class="container">
-        
+
         <div class = "cart">
             <table class="table table-striped text-center">
                 <thead>
@@ -28,7 +28,7 @@
                         <img src="./public_assets/images/menu-img.jpeg" class="nav-img" alt="menu-item" />
                         <span>Classic special</span>
                     </td>
-                    <td> 
+                    <td>
                         Mixed rice with (stripes of beef/ fish/ chicken) served with chips, fried banana + salad
                     </td>
                     <td> 2 </td>
@@ -47,7 +47,7 @@
                         <img src="./public_assets/images/menu-img.jpeg" class="nav-img" alt="menu-item" />
                         <span>Omlette New</span>
                     </td>
-                    <td> 
+                    <td>
                         Mixed rice with (stripes of beef/ fish/ chicken) served with chips, fried banana + salad
                     </td>
                     <td> 1 </td>
@@ -66,7 +66,7 @@
                         <img src="./public_assets/images/menu-img.jpeg" class="nav-img" alt="menu-item" />
                         <span>Murfin Classic</span>
                     </td>
-                    <td> 
+                    <td>
                         Mixed rice with (stripes of beef/ fish/ chicken) served with chips, fried banana + salad
                     </td>
                     <td> 2 </td>
@@ -78,7 +78,7 @@
                         </a>
                     </td>
                   </tr>
-                  
+
                 </tbody>
               </table>
         </div>
@@ -94,10 +94,12 @@
                 </a>
             </div>
             <div class="col-md ">
-                <a href="{{ route('home') }}" class="btn btn-sm btn-success float-right btn-cart-page">
+                <button type="button" class="btn btn-sm btn-success float-right btn-cart-page" data-toggle="modal" data-target="#checkoutModal">
                     Checkout
-                </a>
+                </button>
             </div>
         </div>
     </div>
+
+
 @endsection

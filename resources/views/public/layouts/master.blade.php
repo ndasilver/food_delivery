@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- main custom css -->
-    <link rel="stylesheet" href="./public_assets/css/main.css" />
+    <link rel="stylesheet" href="/public_assets/css/main.css" />
 
     <!-- Bootstrap css-->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
@@ -21,7 +21,7 @@
 
 <nav class="navbar navbar-light navbar-expand-md bg-faded justify-content-center">
     <a href="/" class="navbar-brand d-flex mr-auto" style="width: 34%!important;">
-        <img src="./public_assets/images/cp logo.png" width="50" height="50" class="d-inline-block align-top" alt="Top-logo">
+        <img src="/public_assets/images/cp logo.png" width="50" height="50" class="d-inline-block align-top" alt="Top-logo">
         <span class="brand-name"> Classic Hotel </span>
     </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsingNavbar3">
@@ -35,15 +35,19 @@
                 <img src="./public_assets/images/menu-img.jpeg" class="nav-img" alt="menu-item" />
                     <div class="menu-text">All</div>
                     <span class="sr-only">(current)</span>
+                <a class="nav-link" href="{{ route('home') }}">
+                <img src="/public_assets/images/menu-img.jpeg" class="nav-img" alt="menu-item" />
+                All <span class="sr-only">(current)</span>
                 </a>
             </li>
             @foreach(\App\Category::take(5)->get() as $category)
 
             <li class="nav-item">
-
                 <a class="nav-link" href="#">
                 <img src="./public_assets/images/menu-img.jpeg" class="nav-img" alt="menu-item" />
                     <div class="menu-text">
+                <a class="nav-link" href="{{ route('category', $category->id) }}">
+                <img src="/public_assets/images/menu-img.jpeg" class="nav-img" alt="menu-item" />
                 {{$category->name}}
                     </div>
                 </a>
@@ -77,9 +81,9 @@
                                     </a>
                                 </span>
                             <span class="float-right">
-                                    <a href="#" class="btn btn-sm btn-success">
+                                    <button href="#" class="btn btn-sm btn-success" data-toggle="modal" data-target="#checkoutModal">
                                         Checkout
-                                    </a>
+                                    </button>
                                 </span>
                         </div>
             </li>
@@ -89,34 +93,12 @@
 </nav>
 <!-- Page content goes here -->
 @yield('content')
-
+<!-- Add to cart Modal -->
+@include('public.includes.addToCartModal')
+<!-- Checkout Modal -->
+@include('public.includes.checkoutModal')
 <!-- Footer -->
-<footer class="page-footer font-small unique-color-dark pt-4">
-
-    <!-- Footer Elements -->
-    <div class="container">
-
-        <!-- Call to action -->
-        <ul class="list-unstyled list-inline text-center py-2">
-            <li class="list-inline-item">
-                <h5 class="mb-1">Contact us!</h5>
-            </li>
-        </ul>
-        <!-- Call to action -->
-
-    </div>
-    <!-- Footer Elements -->
-
-    <!-- Copyright -->
-    <div class="footer-copyright text-center py-3">© 2020 Copyright
-        <a href="https://classichotelkigali.com/"> classic hotel</a>
-    </div>
-    <!-- Copyright -->
-
-</footer>
-<!-- Footer -->
-
-
+@include('public.includes.footer')
 
 <!--Jquery scripts -->
 <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>

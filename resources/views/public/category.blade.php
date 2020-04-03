@@ -1,36 +1,24 @@
 @extends('public.layouts.master')
 
 @section('content')
-<div class="jumbotron">
-    <div class="text-center">
-        <form class="form-inline mx-auto d-block">
-            <div class="form-row">
-                <div class="col-8">
-                    <input class="form-control float-right" type="search" placeholder="Search" aria-label="Search">
-
-                </div>
-
-                <div class="col-4">
-                    <button class="btn btn-primary btn-main-search float-left" type="submit">Search</button>
-                </div>
-            </div>
-        </form>
+    <div class="jumbotron cart-page">
+        <div class="text-center">
+            <h2 class="page-title">{{ $category->name }}</h2>
+        </div>
     </div>
-</div>
-
-<div class="container">
-    <div class="row">
-        <div class="col-lg text-center">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg text-center">
                 <span class="text-center">
-                    <h3 class="display-4"> All Items </h3>
+                    <h3 class="display-4"> All {{ $category->name }} </h3>
                 </span>
+            </div>
+
         </div>
 
-    </div>
-
-    <div class="row menu-items">
-        <?php $col_counter = 0 ?>
-        @foreach($products as $product)
+        <div class="row menu-items">
+            <?php $col_counter = 0 ?>
+            @foreach($products as $product)
 
                 <div class="col-md">
                     <div class="row">
@@ -62,7 +50,7 @@
                     </div>
                 </div>
 
-            <?php
+                <?php
                 $col_counter = $col_counter + 1;
                 if($col_counter == 2){
                     echo "<div class='w-100'></div>";
@@ -72,11 +60,8 @@
 
                 ?>
 
-        @endforeach
+            @endforeach
 
+        </div>
     </div>
-</div>
-
-
-
 @endsection

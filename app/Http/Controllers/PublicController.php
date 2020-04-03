@@ -23,4 +23,19 @@ class PublicController extends Controller
         return view('public.cart');
     }
 
+    public function category($id){
+        $category = Category::findOrFail($id);
+
+        $products = Menu::where('category_id', $id)->get();
+
+        return view('public.category')
+            ->with('products', $products)
+            ->with('category', $category);
+
+    }
+
+    public function checkout(){
+        return view('public.checkout');
+    }
+
 }
