@@ -30,36 +30,27 @@
     <div class="navbar-collapse collapse w-100" id="collapsingNavbar3">
         <ul class="navbar-nav w-100 justify-content-center text-center">
             <li class="nav-item active">
-
-                <a class="nav-link" href="#">
-                <img src="./public_assets/images/menu-img.jpeg" class="nav-img" alt="menu-item" />
-                    <div class="menu-text">All</div>
-                    <span class="sr-only">(current)</span>
                 <a class="nav-link" href="{{ route('home') }}">
-                <img src="/public_assets/images/menu-img.jpeg" class="nav-img" alt="menu-item" />
-                All <span class="sr-only">(current)</span>
+                    <img src="/public_assets/images/menu-img.jpeg" class="nav-img" alt="menu-item" />
+                    <div class="menu-text">
+                        All
+                    </div>
+                    <span class="sr-only">(current)</span>
                 </a>
             </li>
+
             @foreach(\App\Category::take(5)->get() as $category)
 
-            <li class="nav-item">
-                <a class="nav-link" href="#">
-                <img src="./public_assets/images/menu-img.jpeg" class="nav-img" alt="menu-item" />
-                    <div class="menu-text">
-                <a class="nav-link" href="{{ route('category', $category->id) }}">
-                <img src="/public_assets/images/menu-img.jpeg" class="nav-img" alt="menu-item" />
-                {{$category->name}}
-                    </div>
-                </a>
-            </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('category', $category->id) }}">
+                        <img src="/public_assets/images/menu-img.jpeg" class="nav-img" alt="menu-item" />
+                        <div class="menu-text">
+                            {{$category->name}}
+                        </div>
+                    </a>
+                </li>
             @endforeach
-            <li class="nav-item">
 
-                <a class="nav-link" href="#">
-                    <img src="./public_assets/images/menu-img.jpeg" class="nav-img" alt="menu-item" />
-                    <div class="menu-text"> More</div>
-                </a>
-            </li>
         </ul>
         <ul class="nav navbar-nav ml-auto w-100 justify-content-end">
             <li class="nav-item dropdown">
@@ -86,6 +77,7 @@
                                     </button>
                                 </span>
                         </div>
+
             </li>
 
         </ul>
@@ -108,7 +100,7 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 
 <!-- Custom scripts -->
-<script src="./public_assets/js/scripts.js"></script>
+<script src="/public_assets/js/scripts.js"></script>
 
 
 </body>
