@@ -209,3 +209,22 @@ a.btn-cart-page {
 .cart-action a {
     color: black !important;
 }
+
+/*------------ Checkout styles ----------------------*/
+form.checkout-form input[type=text]{
+    width: 100% !important;
+}
+
+form.checkout-form input[type=radio], input[type=checkbox] {
+    -ms-transform: scale(1.5);
+    /* IE 9 */
+    -webkit-transform: scale(1.5);
+    /* Chrome, Safari, Opera */
+    transform: scale(1.5);
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+#checkoutModal .modal-footer{
+    justify-content: flex-start !important;
+}

@@ -68,9 +68,9 @@
                                     </a>
                                 </span>
                             <span class="float-right">
-                                    <a href="#" class="btn btn-sm btn-success">
+                                    <button href="#" class="btn btn-sm btn-success" data-toggle="modal" data-target="#checkoutModal">
                                         Checkout
-                                    </a>
+                                    </button>
                                 </span>
                         </div>
             </li>
@@ -80,34 +80,12 @@
 </nav>
 <!-- Page content goes here -->
 @yield('content')
-
+<!-- Add to cart Modal -->
+@include('public.includes.addToCartModal')
+<!-- Checkout Modal -->
+@include('public.includes.checkoutModal')
 <!-- Footer -->
-<footer class="page-footer font-small unique-color-dark pt-4">
-
-    <!-- Footer Elements -->
-    <div class="container">
-
-        <!-- Call to action -->
-        <ul class="list-unstyled list-inline text-center py-2">
-            <li class="list-inline-item">
-                <h5 class="mb-1">Contact us!</h5>
-            </li>
-        </ul>
-        <!-- Call to action -->
-
-    </div>
-    <!-- Footer Elements -->
-
-    <!-- Copyright -->
-    <div class="footer-copyright text-center py-3">© 2020 Copyright
-        <a href="https://classichotelkigali.com/"> classic hotel</a>
-    </div>
-    <!-- Copyright -->
-
-</footer>
-<!-- Footer -->
-
-
+@include('public.includes.footer')
 
 <!--Jquery scripts -->
 <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
