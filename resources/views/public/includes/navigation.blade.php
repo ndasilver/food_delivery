@@ -18,7 +18,7 @@
                 </a>
             </li>
 
-            @foreach(\App\Category::take(5)->get() as $category)
+            @foreach(\App\Category::where('isActive', 1)->take(5)->get() as $category)
 
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('category', $category->id) }}">

@@ -40,6 +40,7 @@ class CategoryController extends Controller
         $category = new Category();
 
         $category->name = $request['name'];
+        $category->isActive = 0;
 
         $category->save();
 
