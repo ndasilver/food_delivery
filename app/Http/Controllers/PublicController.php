@@ -38,4 +38,12 @@ class PublicController extends Controller
         return view('public.checkout');
     }
 
+    public function categories(){
+        $categories =  Category::all();
+
+        return view('public.category')
+            ->with('categories', $categories);
+    }
+
+
 }
