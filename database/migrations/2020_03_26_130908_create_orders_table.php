@@ -17,10 +17,14 @@ class CreateOrdersTable extends Migration
             $table->bigIncrements('id');
             $table->string('owner',100);
             $table->string('phone');
-            $table->string('destination',100);
+            $table->string('location',100);
+            $table->string('street',100);
+            $table->string('location_info',100);
+            $table->bigInteger('payment_method')->unsigned();
             $table->double('total_price');
             $table->bigInteger('status_id')->unsigned();
             $table->foreign('status_id')->references('id')->on('statuses');
+            $table->foreign('payment_method')->references('id')->on('payments');
             $table->timestamps();
         });
     }

@@ -17,6 +17,6 @@ class Menu extends Model
         return $this->belongsTo('App\Category');
     }
     public function order_items(){
-        return $this->belongsTo('Order_items');
+        return $this->belongsToMany('App\Order_items');
     }
 }

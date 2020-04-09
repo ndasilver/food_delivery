@@ -7,9 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 class Order_item extends Model
 {
     public function order(){
-        return $this->belongsTo('Order');
+        return $this->belongsToMany('App\Order');
     }
     public function menu(){
-        return $this->hasMany('menu');
+        return $this->belongsTo('App\Menu');
     }
 }
