@@ -240,3 +240,12 @@ form.checkout-form input[type=radio], input[type=checkbox] {
 #checkoutModal .modal-footer{
     justify-content: flex-start !important;
 }
+
+/*---------------- All categories page ------------------------*/
+.sidebar .list-group-item.active a{
+    color: white !important;
+}
+
+.main-contents .col-md{
+    margin-bottom: 40px
+}
