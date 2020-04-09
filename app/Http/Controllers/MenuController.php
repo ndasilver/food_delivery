@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\menu;
+use App\Category;
 use Illuminate\Http\Request;
 
 class MenuController extends Controller
@@ -51,6 +52,17 @@ class MenuController extends Controller
             'price'=> $request->price,
             'category_id'=> $request->category,
         ]);
+
+        // Set the category to be active if it was not Active
+        /* By default categories that don't have  a menu associated with them
+         are disabled */
+        $category = Category::findOrFail($request->category);
+
+        if($category->isActive == 0){
+            $category->isActive = 1;
+            $category->save();
+        }
+
         return redirect()->back()->with('success','Item created successfully');
     }
 
