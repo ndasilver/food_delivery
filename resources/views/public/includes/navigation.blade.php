@@ -31,12 +31,11 @@
             @endforeach
 
             <li class="nav-item">
-                <a class="nav-link" href="">
+                <a class="nav-link" href="{{ route('categories') }}">
                     <img src="/public_assets/images/menu-img.jpeg" class="nav-img" alt="menu-item" />
                     <div class="menu-text">
                         More
                     </div>
-                    <span class="sr-only">(current)</span>
                 </a>
             </li>
         </ul>

@@ -25,12 +25,16 @@ class PublicController extends Controller
 
     public function category($id){
         $category = Category::findOrFail($id);
-
+        $categories =  Category::all();
         $products = Menu::where('category_id', $id)->get();
+
+        $active = $category->name;
 
         return view('public.category')
             ->with('products', $products)
-            ->with('category', $category);
+            ->with('category', $category)
+            ->with('categories', $categories)
+            ->with('active', $active);
 
     }
 
@@ -40,9 +44,14 @@ class PublicController extends Controller
 
     public function categories(){
         $categories =  Category::all();
+        $products = Menu::all();
 
-        return view('public.category')
-            ->with('categories', $categories);
+        $active = 'all';
+
+        return view('public.categories')
+            ->with('categories', $categories)
+            ->with('products', $products)
+            ->with('active', $active);
     }
 
 

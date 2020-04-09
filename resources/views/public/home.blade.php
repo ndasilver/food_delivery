@@ -49,7 +49,9 @@
 
                             <div class="">
                             <span class="price float-left">
-                                <h5>{{ $product->price }}</h5>
+                                <h5>
+                                    {{ number_format($product->price) }} Rwf
+                                </h5>
                             </span>
 
                                 <span class="add-to-cart float-right">
