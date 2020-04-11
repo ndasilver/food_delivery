@@ -22,7 +22,7 @@
 
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('category', $category->id) }}">
-                        <img src="/public_assets/images/menu-img.jpeg" class="nav-img" alt="menu-item" />
+                        <img src="/public_assets/images/categories/{{$category->image}}" class="nav-img" alt="Category Image here" />
                         <div class="menu-text">
                             {{$category->name}}
                         </div>

@@ -34,6 +34,8 @@ Route::middleware(['auth'])->group(function (){
     Route::resource('admin/orders','OrderController');
 //Route::post('admin/menu','MenuController@store')->name('Admin Create menu item');
     Route::resource('admin/categories', 'CategoryController')->names([
-        'store' => 'categories.store'
+        'store' => 'categories.store',
+        'edit' => 'categories.edit',
+        'index' => 'categories.index'
     ]);
 });

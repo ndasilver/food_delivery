@@ -13,7 +13,6 @@ class PublicController extends Controller
     public function index()
     {
         $products = Menu::all();
-        $categories = Category::all();
 
         return view('public.home')->with('products', $products);
     }
@@ -25,7 +24,7 @@ class PublicController extends Controller
 
     public function category($id){
         $category = Category::findOrFail($id);
-        $categories =  Category::all();
+        $categories = Category::where('isActive', 1)->get();
         $products = Menu::where('category_id', $id)->get();
 
         $active = $category->name;
@@ -43,7 +42,7 @@ class PublicController extends Controller
     }
 
     public function categories(){
-        $categories =  Category::all();
+        $categories = Category::where('isActive', 1)->get();
         $products = Menu::all();
 
         $active = 'all';
