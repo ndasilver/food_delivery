@@ -4,7 +4,7 @@
     </div>
     <ul class="list-group list-group-flush">
         <li class="list-group-item <?php if($active == 'all'){ echo "active"; }?>">
-            <a href="">
+            <a href="{{ route('categories') }}">
                 All <i class="fa fa-angle-right float-right"></i>
             </a>
         </li>
