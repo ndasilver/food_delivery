@@ -19,9 +19,14 @@
 
 Route::get('/', 'PublicController@index')->name('home');
 Route::get('/cart', 'PublicController@cart')->name('cart');
+Route::get('/add-to-cart/{id}/{quantity}', 'PublicController@addToCart')->name('AddToCart');
+Route::get('/cart-items-cart', 'PublicController@getCart')->name('get.Cart');
 Route::get('/category/{id}', 'PublicController@category')->name('category');
 Route::get('/checkout', 'PublicController@checkout')->name('checkout');
 Route::get('/categories', 'PublicController@categories')->name('categories');
+Route::group(['middleware' => 'cors'], function () {
+
+});
 
 
 

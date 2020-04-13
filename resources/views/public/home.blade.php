@@ -55,7 +55,8 @@
                             </span>
 
                                 <span class="add-to-cart float-right">
-                                <button type="button" class="btn btn-primary btn-sm btn-add-to-cart" data-toggle="modal" data-target="#addToCartModal">
+                                <button type="button" class="btn btn-primary btn-sm btn-add-to-cart"  onclick="getItemId({{ $product->id }})" data-toggle="modal" data-target="#addToCartModal">
+                                    <input class="itemId" value="{{ $product->id }}" hidden>
                                     <i class="fa fa-plus-circle"></i> Add to cart
                                 </button>
                             </span>

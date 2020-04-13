@@ -62,3 +62,62 @@ $(function() {
         }
     });
 });
+
+
+
+let getItemId = (itemId) => {
+    let clickedItem = document.getElementById("clickedItemId");
+    clickedItem.value = itemId;
+};
+const addToCart = ()=>{
+   const ItemId = document.getElementById("clickedItemId").value;
+   const cartPrice = document.getElementById("cart-price");
+   const itemTotal = document.getElementById("items-total").innerText;
+   const url = `../add-to-cart/${ItemId}/${itemTotal}`;
+   const action = $('#addToCartModal').modal('hide');
+   getData(url,action,"Successfully added to cart");
+
+};
+let getData = (url,action,message)=> {
+    $.ajax({
+        type:'GET',
+        url:url,
+        beforeSend:function () {
+            Pace.restart();
+        },
+        success:function () {
+            Pace.stop();
+                action;
+            Swal.fire(
+                'Good job!',
+                message,
+                'success'
+            )
+        }
+    });
+};
+
+const addToDropDownCart = ()=> {
+    $(".itemCartDropDown").remove();
+    $(".dropdown-divider").remove();
+    $.getJSON('../cart-items-cart', function (data, status) {
+        if (status == "success") {
+            let counter = 0;
+            $.each(data, function (i, field) {
+                const itemID = i;
+                const postID = $(".itemCartDropDown").attr("id");
+                document.getElementById("dropdown-cart-items").insertAdjacentHTML('afterbegin', `
+                         <div class="itemCartDropDown" id="${i}">
+                            ${field.quantity}x ${field.name} = ${field.quantity * field.price}
+                            </div>
+                            <div class="dropdown-divider"></div>`);
+                counter++;
+            })
+            document.getElementById("cartQuantityCounter").innerHTML = counter;
+        } else {
+            console.error("error occured");
+        }
+    });
+};
+
+addToDropDownCart();
