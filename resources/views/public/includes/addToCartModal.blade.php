@@ -15,7 +15,7 @@
                 <form>
                     <ul class="side-choices">
                         <li>
-                            <input type="radio" name="accomp" checked/>
+                            <input type="radio" id="default-selection" name="accomp" checked/>
                             <label>Chips</label>
                         </li>
                         <li>

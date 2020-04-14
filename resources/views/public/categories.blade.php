@@ -59,8 +59,17 @@
 
                     @endforeach
                 </div>
+                <div class="row">
+                    <div class="col-12">
+                        <div class="pagination-controls text-center">
+                            {{ $products->links() }}
+                        </div>
+                    </div>
+
+                </div>
             </div>
         </div>
+
     </div>
 
 

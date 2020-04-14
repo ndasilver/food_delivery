@@ -1,4 +1,4 @@
-<nav class="navbar navbar-light navbar-expand-md bg-faded justify-content-center">
+<nav class="navbar navbar-light navbar-expand-md bg-faded justify-content-center fixed-top">
     <a href="/" class="navbar-brand d-flex mr-auto" style="width: 34%!important;">
         <img src="/public_assets/images/cp logo.png" width="50" height="50" class="d-inline-block align-top" alt="Top-logo">
         <span class="brand-name"> Classic Hotel </span>
@@ -8,7 +8,7 @@
     </button>
     <div class="navbar-collapse collapse w-100" id="collapsingNavbar3">
         <ul class="navbar-nav w-100 justify-content-center text-center">
-            <li class="nav-item active">
+            <li class="nav-item  <?php if($active == 'All'){ echo "active"; }?>">
                 <a class="nav-link" href="{{ route('home') }}">
                     <img src="/public_assets/images/menu-img.jpeg" class="nav-img" alt="menu-item" />
                     <div class="menu-text">
@@ -20,7 +20,7 @@
 
             @foreach(\App\Category::where('isActive', 1)->take(5)->get() as $category)
 
-                <li class="nav-item">
+                <li class="nav-item <?php if($active == $category->name){ echo "active"; }?>">
                     <a class="nav-link" href="{{ route('category', $category->id) }}">
                         <img src="/public_assets/images/categories/{{$category->image}}" class="nav-img" alt="Category Image here" />
                         <div class="menu-text">
@@ -32,7 +32,7 @@
 
             <li class="nav-item">
                 <a class="nav-link" href="{{ route('categories') }}">
-                    <img src="/public_assets/images/menu-img.jpeg" class="nav-img" alt="menu-item" />
+                    <img src="/public_assets/images/more.png" class="nav-img" alt="menu-item" />
                     <div class="menu-text">
                         More
                     </div>

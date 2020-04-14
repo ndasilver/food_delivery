@@ -1,3 +1,5 @@
+
+// Function to control product quantities by substracting
 const sub = () => {
     let total = Number($('#items-total').html());
     const price = 6500;
@@ -15,6 +17,8 @@ const sub = () => {
 
 }
 
+
+// Function to control product quantities by adding
 const add = () => {
     let total = Number($('#items-total').html());
     const price = 6500;
@@ -25,9 +29,18 @@ const add = () => {
     return $('#items-total').html(total);
 }
 
+
+// Function to display price
 const displayPrice = (price) => {
     return $('#cart-price').html(price);
 }
+
+// Function to reset add to cart Modal
+$('#addToCartModal').on('hidden.bs.modal', function (e) {
+    $('#items-total').html('1');
+    $('#cart-price').html('6500');
+    $("#default-selection").prop('checked', true);
+})
 
 // Functions to display/hide change box
 $(function() {
@@ -69,6 +82,7 @@ let getItemId = (itemId) => {
     let clickedItem = document.getElementById("clickedItemId");
     clickedItem.value = itemId;
 };
+
 const addToCart = ()=>{
    const ItemId = document.getElementById("clickedItemId").value;
    const cartPrice = document.getElementById("cart-price");

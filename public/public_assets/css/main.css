@@ -8,12 +8,21 @@ nav {
     /* Standard syntax (must be last) */
 }
 
+.navbar{
+    padding: 0rem 1rem !important;
+}
+
 .navbar-light .navbar-nav .nav-link {
     color: #f8f9fa !important;
+
 }
 
 .navbar-light .navbar-brand {
     color: white !important;
+}
+
+.navbar-nav li.active{
+    background-color: #1f2d3d !important;
 }
 
 i.fa-shopping-cart.top-nav {
@@ -183,6 +192,19 @@ ul.side-choices {
         margin-left: 80px;
         text-align: left;
     }
+
+    .navbar{
+        padding: 0rem 0rem !important;
+    }
+
+    .navbar ul li{
+        padding: 0rem 1rem !important;
+    }
+
+    .navbar .navbar-brand{
+        padding: 0rem 1rem !important;
+    }
+
 }
 
 
@@ -248,4 +270,20 @@ form.checkout-form input[type=radio], input[type=checkbox] {
 
 .main-contents .col-md{
     margin-bottom: 40px
+}
+
+div.pagination-controls {
+    margin-top: 30px !important;
+
+
+}
+
+div.pagination-controls nav{
+    background-color: #ffffff !important;
+    background-image: linear-gradient(to right, #ffffff, #ffffff) !important;
+
+}
+
+div.pagination-controls nav ul{
+    justify-content: center !important;
 }
