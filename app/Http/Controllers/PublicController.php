@@ -19,7 +19,15 @@ class PublicController extends Controller
 
     public function cart()
     {
-        return view('public.cart');
+        $ids = [];
+        $sessions = session()->get('cart');
+        if ($sessions){
+            $quantity = 0;
+        foreach ($sessions as $keys=>$session){
+            array_push($ids,$keys);
+        }}
+        $products = Menu::whereIn('id',$ids)->get();
+        return view('public.cart',compact('products','sessions'));
     }
 
     public function category($id){
@@ -51,6 +59,45 @@ class PublicController extends Controller
             ->with('categories', $categories)
             ->with('products', $products)
             ->with('active', $active);
+    }
+    public function addToCart($id, $quantity){
+        $item = Menu::find($id);
+        if ($item){
+            $cart = session()->get('cart');
+            if (!$cart){
+                $newCart = [
+                    $id =>[
+                    "name" => $item->name,
+                    "quantity"=>$quantity,
+                    "price"=>$item->price,
+                    "image" =>$item->image
+            ]];
+                session()->put('cart',$newCart);
+                return "cart created";
+            }
+            if (isset($cart[$id])){
+                $cart[$id]['quantity'] = $cart[$id]['quantity'] + $quantity ;
+                session()->put('cart',$cart);
+                return json_encode("added to cart with success");
+            }
+            $cart[$id] = [
+                "name" => $item->name,
+                "quantity"=>$quantity,
+                "price"=>$item->price,
+                "image" =>$item->image
+            ];
+            session()->put('cart',$cart);
+            return "item added to cart";
+        }
+    }
+
+    public function getCart(){
+        $cart = session()->get('cart');
+        if ($cart){
+            return $cart;
+        }else{
+            return "cart is empty";
+        }
     }
 
 

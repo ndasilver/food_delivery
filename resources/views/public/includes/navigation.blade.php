@@ -42,16 +42,13 @@
         <ul class="nav navbar-nav ml-auto w-100 justify-content-end">
             <li class="nav-item dropdown">
                 <a href="#" class="btn btn-success my-2 my-sm-0 btn-cart-top" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    (3)<i class="fa fa-shopping-cart top-nav"></i>
+                    (<span id="cartQuantityCounter"></span>)<i class="fa fa-shopping-cart top-nav"></i>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
                     <div class="dropdown-cart-items">
-                        <div>2x Classic Special = <span class="red-text">Rwf 6500</span></div>
-                        <div class="dropdown-divider"></div>
-                        <div>2x Classic Special = <span class="red-text">Rwf 6500</span></div>
-                        <div class="dropdown-divider"></div>
-                        <div>2x Classic Special = <span class="red-text">Rwf 6500</span></div>
-                        <div class="dropdown-divider"></div>
+                        <div  id="dropdown-cart-items">
+
+                        </div>
                         <div>
                                 <span class="float-left">
                                     <a href="{{ route('cart') }}" class="btn btn-sm btn-primary">

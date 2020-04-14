@@ -22,63 +22,53 @@
                   </tr>
                 </thead>
                 <tbody>
+                @if(count($products) > 0)
+                    <?php
+                    $sum = 0;
+                    $quantity = 0;
+                    $total = 0;
+                    $gTotal = 0;
+                    $count = 1;
+                    ?>
+                    @foreach($products as $product)
                   <tr>
-                    <th scope="row">1</th>
-                    <td>
+                    <th scope="row">{{$count++}}</th>
+                    <td style="text-align: left">
                         <img src="./public_assets/images/menu-img.jpeg" class="nav-img" alt="menu-item" />
-                        <span>Classic special</span>
+                        <span>{{ $product->name }}</span>
                     </td>
                     <td>
-                        Mixed rice with (stripes of beef/ fish/ chicken) served with chips, fried banana + salad
+                        {{$product->description}}
                     </td>
-                    <td> 2 </td>
-                    <td> Rwf 6,500 </td>
-                    <td>Rwf 13,000 </td>
+                    <td>
+                    @if($sessions[$product->id])
+                        <input value="{{ $sessions[$product->id]['quantity'] }}" type="number" style="width: 75px; text-align: center;border: 0"/>
+                            <?php
+                            $quantity = $sessions[$product->id]['quantity'];
+                            $total = $product->price * $sessions[$product->id]['quantity'];
+                            $gTotal +=$total;
+                            ?>
+                        @endif
+                    </td>
+                    <td> {{number_format($product->price)}} </td>
+                    <td>{{ number_format($product->price * $sessions[$product->id]['quantity']) }} </td>
                     <td class="cart-action">
                         <a href="#">
                             <i class="fa fa-trash"></i>
                         </a>
                     </td>
                   </tr>
-
-                  <tr>
-                    <th scope="row">2</th>
-                    <td>
-                        <img src="./public_assets/images/menu-img.jpeg" class="nav-img" alt="menu-item" />
-                        <span>Omlette New</span>
+                  @endforeach
+                    <tr>
+                        <td colspan="5" style="text-align: left;font-weight: bold">G.Total</td>
+                        <td style="font-weight: bold">{{ number_format($gTotal) }}</td>
+                        <td></td>
+                    </tr>
+                 @else
+                    <td colspan="7">
+                        Cart is empty, Please add items to cart
                     </td>
-                    <td>
-                        Mixed rice with (stripes of beef/ fish/ chicken) served with chips, fried banana + salad
-                    </td>
-                    <td> 1 </td>
-                    <td> Rwf 5,500 </td>
-                    <td>Rwf 5,000 </td>
-                    <td class="cart-action">
-                        <a href="#">
-                            <i class="fa fa-trash"></i>
-                        </a>
-                    </td>
-                  </tr>
-
-                  <tr>
-                    <th scope="row">3</th>
-                    <td>
-                        <img src="./public_assets/images/menu-img.jpeg" class="nav-img" alt="menu-item" />
-                        <span>Murfin Classic</span>
-                    </td>
-                    <td>
-                        Mixed rice with (stripes of beef/ fish/ chicken) served with chips, fried banana + salad
-                    </td>
-                    <td> 2 </td>
-                    <td> Rwf 6,500 </td>
-                    <td>Rwf 13,000 </td>
-                    <td class="cart-action">
-                        <a href="#">
-                            <i class="fa fa-trash"></i>
-                        </a>
-                    </td>
-                  </tr>
-
+                @endif
                 </tbody>
               </table>
         </div>
@@ -89,14 +79,18 @@
                 </a>
             </div>
             <div class="col-md text-center">
+                @if(count($products) > 0)
                 <a href="" class="btn btn-sm btn-danger btn-cart-page">
                     Clear Cart
                 </a>
+                @endif
             </div>
             <div class="col-md ">
+                @if(count($products) > 0)
                 <button type="button" class="btn btn-sm btn-success float-right btn-cart-page" data-toggle="modal" data-target="#checkoutModal">
                     Checkout
                 </button>
+                @endif
             </div>
         </div>
     </div>
