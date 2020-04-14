@@ -12,9 +12,13 @@ class PublicController extends Controller
 
     public function index()
     {
-        $products = Menu::all();
+        $products = Menu::paginate(12);
 
-        return view('public.home')->with('products', $products);
+        $active = 'All';
+
+        return view('public.home')
+            ->with('products', $products)
+            ->with('active', $active);
     }
 
     public function cart()
@@ -27,13 +31,16 @@ class PublicController extends Controller
             array_push($ids,$keys);
         }}
         $products = Menu::whereIn('id',$ids)->get();
-        return view('public.cart',compact('products','sessions'));
+
+        $active = '';
+        return view('public.cart',compact('products','sessions'))
+            ->with('active', $active);
     }
 
     public function category($id){
         $category = Category::findOrFail($id);
         $categories = Category::where('isActive', 1)->get();
-        $products = Menu::where('category_id', $id)->get();
+        $products = Menu::where('category_id', $id)->paginate(8);
 
         $active = $category->name;
 
@@ -51,7 +58,7 @@ class PublicController extends Controller
 
     public function categories(){
         $categories = Category::where('isActive', 1)->get();
-        $products = Menu::all();
+        $products = Menu::paginate(8);
 
         $active = 'all';
 
