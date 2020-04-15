@@ -1,4 +1,4 @@
-<nav class="navbar navbar-light navbar-expand-md bg-faded justify-content-center fixed-top">
+<nav class="navbar navbar-light navbar-expand-md bg-faded justify-content-center">
     <a href="/" class="navbar-brand d-flex mr-auto" style="width: 34%!important;">
         <img src="/public_assets/images/cp logo.png" width="50" height="50" class="d-inline-block align-top" alt="Top-logo">
         <span class="brand-name"> Classic Hotel </span>

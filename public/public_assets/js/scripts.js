@@ -90,6 +90,7 @@ const addToCart = ()=>{
    const url = `../add-to-cart/${ItemId}/${itemTotal}`;
    const action = $('#addToCartModal').modal('hide');
    getData(url,action,"Successfully added to cart");
+   addToDropDownCart();
 
 };
 let getData = (url,action,message)=> {
