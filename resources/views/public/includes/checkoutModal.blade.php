@@ -1,7 +1,8 @@
 <div class="modal fade" id="checkoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
-            <form class="checkout-form">
+            <form class="checkout-form" id="orderCheckoutForm" method="post" action="{{ route('checkout.Cart') }}">
+                {{ csrf_field()}}
                 <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLongTitle">Checkout</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -10,43 +11,41 @@
                 </div>
                 <div class="modal-body">
                     <div class="form-row">
-                        <div class="form-group col-md-6">
-                            <label for="fname">First Name</label>
-                            <input type="text" class="form-control" id="fname" name="fname" placeholder="First Name">
-                        </div>
-                        <div class="form-group col-md-6">
-                            <label for="lname">Last Name</label>
-                            <input type="text" class="form-control" id="lname" name="lname" placeholder="Last Name">
+                        <div class="form-group col-md-12">
+                            <label for="fname">Names</label>
+                            <input type="text" class="form-control" id="orderFname" name="owner" placeholder="First Name" required>
                         </div>
                     </div>
                     <div class="form-row">
-                        <div class="form-group col-md-6">
-                            <label for="address">Address</label>
-                            <input type="text" class="form-control" id="address" name="address" placeholder="Street Number">
-                        </div>
-                        <div class="form-group col-md-6">
-                            <label for="near">Near</label>
-                            <input type="text" class="form-control" id="near" name="near" placeholder="Near...">
-                        </div>
+                    <div class="form-group col-md-6">
+                        <label for="phone">Contact</label>
+                        <input type="phone" class="form-control" id="phone" name="phone" placeholder="Phone Number">
+                    </div>
                     </div>
 
-                    <div class="form-group">
-                        <label for="contact">Contact</label>
-                        <input type="text" class="form-control" id="contact" name="contact" placeholder="Phone Number">
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="address">Address</label>
+                            <input type="text" class="form-control" id="address" name="location" placeholder="Street Number" required>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="near">Other location info</label>
+                            <input type="text" class="form-control" id="orderLocationInfo" name="location_info" placeholder="Near...">
+                        </div>
                     </div>
                     <hr/>
                     <div class="form-group">
                         <label for="change"><strong>Payment Option</strong></label>
                         <br/>
-                        <input type="radio" name="payment" id="momo" checked/>
-                        <label>Mobile Money</label>
-                        <input type="radio" name="payment" id="cash"/>
-                        <label>Cash on Delivery</label>
+                        @foreach($payment_method as $payment_method)
+                        <input type="radio" name="payment_method" id="paymentMethod{{$payment_method->id}}" value="{{ $payment_method->id }}" checked/>
+                        <label for="paymentMethod{{$payment_method->id}}">{{ $payment_method->name }}</label>
+                        @endforeach
                     </div>
 
                     <div class="form-group" id="change-box" style="display: none;">
                         <label for="change">Please type in below how much you need change for.</label>
-                        <input type="text" class="form-control" id="change" name="change" placeholder="Eg: Rwf 2000">
+                        <input type="text" class="form-control" id="OrderChange" name="change" placeholder="Eg: Rwf 2000">
                     </div>
 
                 </div>

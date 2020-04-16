@@ -26,7 +26,7 @@
                             <th>Qty</th>
                             <th>Price</th>
                             <th>Total</th>
-                            <th>Approved</th>
+                            <th>Status</th>
                             <th>Actions</th>
                         </tr>
                         </thead>
@@ -67,14 +67,23 @@
                                {{ number_format($order->total_price) }}
                             </td>
                             <td>
-                                <a href="#" class="">
-                                    <i class="text-danger fas fa-times"></i>
-                                </a>
+                                @if($order->status->code == 0)
+                                {{ $order->status->name }}
+                                    @else
+
+                                    <span class="text-success"> {{ $order->status->name }}</span>
+                                @endif
                             </td>
 
                             <td>
+                                @if($order->status->code == 0 )
                                 <a href="#">Approve</a> |
                                 <a href="#">Reject</a>
+                                    @elseif($order->status->code == 1)
+                                    <span class="text-success">Approved</span>
+                                    @elseif($order->status->code == 2)
+                                    <span class="text-warning">Approved</span>
+                                @endif
                             </td>
                         </tr>
                         @endforeach
