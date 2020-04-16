@@ -15,6 +15,7 @@ class CreateSideDishesTable extends Migration
     {
         Schema::create('side_dishes', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string('name');
             $table->timestamps();
         });
     }

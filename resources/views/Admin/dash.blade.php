@@ -55,7 +55,7 @@
 
                 <div class="info-box-content">
                     <span class="info-box-text">Total Sales</span>
-                    <span class="info-box-number">{{ \App\Order::all()->sum('total_price') }}</span>
+                    <span class="info-box-number">{{ number_format(\App\Order::all()->sum('total_price')) }}</span>
                 </div>
                 <!-- /.info-box-content -->
             </div>
@@ -80,66 +80,75 @@
                             <th>ID</th>
                             <th>Date & Time</th>
                             <th>Owner</th>
-                            <th>Phone</th>
+                            <th>Locations</th>
+                            <th>Order</th>
                             <th>Qty</th>
+                            <th>Price</th>
                             <th>Total</th>
-                            <th>Approved</th>
+                            <th>Status</th>
                             <th>Actions</th>
                         </tr>
                         </thead>
-                        <tbody>
-                        <tr>
-                            <td>
-                                1
-                            </td>
-                            <td>
-                                2020/06/16
-                            </td>
-                            <td>
-                                Ayman Mugabo
-                                <span class="badge bg-danger">NEW</span>
-                            </td>
-                            <td>0788708212</td>
-                            <td>13</td>
-                            <td>
-                                12,000 Rwf
-                            </td>
-                            <td>
-                                <a href="#" class="">
-                                    <i class="text-danger fas fa-times"></i>
-                                </a>
-                            </td>
-                            <td>
-                                <a href="#">Approve</a> |
-                                <a href="#">Reject</a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                2
-                            </td>
-                            <td>
-                                2020/06/16
-                            </td>
-                            <td>
-                                Sylver mugabo
-                            </td>
-                            <td>0788708212</td>
-                            <td>29</td>
-                            <td>
-                                23,234 Rwf
-                            </td>
-                            <td>
-                                <a href="#" class="">
-                                    <i class="text-success fas fa-check"></i>
-                                </a>
-                            </td>
-                            <td>
-                                <span class="text-success">Approved</span>
-                            </td>
-                        </tr>
+                        <tbody style="font-size: 14px">
+                        @foreach($orders as $order)
+                            <tr>
+                                <td>
+                                    {{ $order->id }}
+                                </td>
+                                <td>{{$order->created_at }}
+                                </td>
+                                <td>
+                                    Names:{{ $order->owner }} <br/>
+                                    Phone: {{$order->phone}}
+
+                                    {{--                                <span class="badge bg-danger">NEW</span>--}}
+                                </td>
+                                <td>
+                                    Location:  {{$order->destionation}}<br/>
+                                    Street:
+                                </td>
+                                <td>
+                                    @foreach($order->order_item as $order_item)
+                                        - {{ $order_item->menu->name }} <br/>
+                                    @endforeach
+                                </td>
+                                <td>
+                                    @foreach($order->order_item as $order_item)
+                                        {{ $order_item->quantity }} <br/>
+                                    @endforeach
+                                </td>
+                                <td>
+                                    @foreach($order->order_item as $order_item)
+                                        {{ number_format($order_item->price) }} <br/>
+                                    @endforeach
+                                </td>
+                                <td>
+                                    {{ number_format($order->total_price) }}
+                                </td>
+                                <td>
+                                    @if($order->status->code == 0)
+                                        {{ $order->status->name }}
+                                    @else
+
+                                        <span class="text-success"> {{ $order->status->name }}</span>
+                                    @endif
+                                </td>
+
+                                <td>
+                                    @if($order->status->code == 0 )
+                                        <a href="#">Approve</a> |
+                                        <a href="#">Reject</a>
+                                    @elseif($order->status->code == 1)
+                                        <span class="text-success">Approved</span>
+                                    @elseif($order->status->code == 2)
+                                        <span class="text-warning">Approved</span>
+                                    @endif
+                                </td>
+                            </tr>
+                        @endforeach
                         </tbody>
                     </table>
+                    {{ $orders->links() }}
                 </div>
             </div>
         </div>

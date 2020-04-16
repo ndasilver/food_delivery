@@ -1,5 +1,6 @@
 
 // Function to control product quantities by substracting
+
 const sub = () => {
     let total = Number($('#items-total').html());
     const price = 6500;
@@ -87,10 +88,19 @@ const addToCart = ()=>{
    const ItemId = document.getElementById("clickedItemId").value;
    const cartPrice = document.getElementById("cart-price");
    const itemTotal = document.getElementById("items-total").innerText;
-   const url = `../add-to-cart/${ItemId}/${itemTotal}`;
-   const action = $('#addToCartModal').modal('hide');
-   getData(url,action,"Successfully added to cart");
-   addToDropDownCart();
+   const side_dish = $('input[name="accomp"]:checked').val();
+   const url = `../add-to-cart/${ItemId}/${parseInt(itemTotal)}/side/${side_dish}`;
+   if (side_dish){
+       const action = $('#addToCartModal').modal('hide');
+       getData(url,action,"Successfully added to cart");
+       addToDropDownCart();
+   }else {
+       Swal.fire({
+           icon: 'error',
+           title: 'Oops...',
+           text: 'Please select side dish first'
+       })
+   }
 
 };
 let getData = (url,action,message)=> {
@@ -134,5 +144,5 @@ const addToDropDownCart = ()=> {
         }
     });
 };
-
 addToDropDownCart();
+

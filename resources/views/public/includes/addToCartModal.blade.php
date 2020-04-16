@@ -14,30 +14,12 @@
 
                 <form>
                     <ul class="side-choices">
+                        @foreach($side_dish as $side_dishes)
                         <li>
-                            <input type="radio" id="default-selection" name="accomp" checked/>
-                            <label>Chips</label>
+                            <input type="radio" id="" name="accomp" value="{{ $side_dishes->id }}"/>
+                            <label>{{$side_dishes->name}}</label>
                         </li>
-                        <li>
-                            <input type="radio" name="accomp" />
-                            <label>Banana</label>
-                        </li>
-                        <li>
-                            <input type="radio" name="accomp" />
-                            <label>Rice</label>
-                        </li>
-                        <li>
-                            <input type="radio" name="accomp" />
-                            <label>Salad</label>
-                        </li>
-                        <li>
-                            <input type="radio" name="accomp" />
-                            <label>Potatoes</label>
-                        </li>
-                        <li>
-                            <input type="radio" name="accomp" />
-                            <label>Vegetables</label>
-                        </li>
+                        @endforeach
                     </ul>
                 </form>
             </div>
