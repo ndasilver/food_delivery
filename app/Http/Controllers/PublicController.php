@@ -74,12 +74,16 @@ class PublicController extends Controller
     public function categories(){
         $categories = Category::where('isActive', 1)->get();
         $products = Menu::paginate(8);
+        $sideDish = Side_dish::all();
+        $payment_method = Payment::all();
 
         $active = 'all';
 
         return view('public.categories')
             ->with('categories', $categories)
             ->with('products', $products)
+            ->with('side_dish', $sideDish)
+            ->with('payment_method', $payment_method)
             ->with('active', $active);
     }
     public function addToCart($id, $quantity, $side_dish){
@@ -125,6 +129,11 @@ class PublicController extends Controller
         }else{
             return "cart is empty";
         }
+    }
+
+    public function getMenuInfo($id){
+        $menu = Menu::findOrFail($id);
+        return response()->json($menu);
     }
 
 

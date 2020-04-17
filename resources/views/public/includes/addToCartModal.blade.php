@@ -8,8 +8,8 @@
                 </button>
             </div>
             <div class="modal-body">
-                <h3>Classic Special</h3>
-                <h5>Make a choice of accompagnment</h5>
+                <h3 id="menu-name">Classic Special</h3>
+                <h5>Make a choice of accompaignment</h5>
                 <p>Minimum 1 and Maximum 1</p>
 
                 <form>
@@ -25,11 +25,12 @@
             </div>
             <div class="modal-footer cart-modal-footer">
                 <div class="float-left sub-total">
-                    <a href="#" onclick="sub()">
+                    <input id="initial-price" type="hidden"/>
+                    <a onclick="sub()">
                         <span class="sub-item" id="sub-item"> - </span>
                     </a>
                     <span class="items-total" id="items-total"> 1 </span>
-                    <a href="#" onclick="add()">
+                    <a onclick="add()">
                         <span class="add-item" id="add-item"> + </span>
                     </a>
 

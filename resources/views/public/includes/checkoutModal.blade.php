@@ -38,8 +38,8 @@
                         <label for="change"><strong>Payment Option</strong></label>
                         <br/>
                         @foreach($payment_method as $payment_method)
-                        <input type="radio" name="payment_method" id="paymentMethod{{$payment_method->id}}" value="{{ $payment_method->id }}" checked/>
-                        <label for="paymentMethod{{$payment_method->id}}">{{ $payment_method->name }}</label>
+                        <input type="radio" name="payment_method" id="{{ $payment_method->code }}" value="{{ $payment_method->id }}" checked/>
+                        <label for="{{ $payment_method->code }}">{{ $payment_method->name }}</label>
                         @endforeach
                     </div>
 
