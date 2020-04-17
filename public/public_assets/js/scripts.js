@@ -3,7 +3,7 @@
 
 const sub = () => {
     let total = Number($('#items-total').html());
-    const price = 6500;
+    const price = Number($('#initial-price').val());
 
     if (total == 1) {
         total = 1;
@@ -22,7 +22,7 @@ const sub = () => {
 // Function to control product quantities by adding
 const add = () => {
     let total = Number($('#items-total').html());
-    const price = 6500;
+    const price = Number($('#initial-price').val());
     total = total + 1;
     let total_price = price * total;
 
@@ -39,7 +39,7 @@ const displayPrice = (price) => {
 // Function to reset add to cart Modal
 $('#addToCartModal').on('hidden.bs.modal', function (e) {
     $('#items-total').html('1');
-    $('#cart-price').html('6500');
+    $('#cart-price').html('');
     $("#default-selection").prop('checked', true);
 })
 
@@ -58,8 +58,6 @@ $(function() {
     $('#momo').click(function() {
         if ($(this).is(':checked')) {
             $('#change-box').hide();
-        } else {
-            $('#change-box').show();
         }
     });
 });
@@ -82,6 +80,10 @@ $(function() {
 let getItemId = (itemId) => {
     let clickedItem = document.getElementById("clickedItemId");
     clickedItem.value = itemId;
+
+    // Displaying information related to the specific Menu
+    getMenuData(itemId);
+
 };
 
 const addToCart = ()=>{
@@ -89,6 +91,8 @@ const addToCart = ()=>{
    const cartPrice = document.getElementById("cart-price");
    const itemTotal = document.getElementById("items-total").innerText;
    const side_dish = $('input[name="accomp"]:checked').val();
+
+
    const url = `../add-to-cart/${ItemId}/${parseInt(itemTotal)}/side/${side_dish}`;
    if (side_dish){
        const action = $('#addToCartModal').modal('hide');
@@ -145,4 +149,24 @@ const addToDropDownCart = ()=> {
     });
 };
 addToDropDownCart();
+
+// Ajax Function to getMenu Information on add to cart
+const getMenuData = (id) => {
+    const menuId = id;
+    $.ajax({
+        type:'GET',
+        url:"/getMenuInfo/"+ menuId,
+        dataType:"json",
+        success:function(data){
+            // console.log(data.name);
+            $('#cart-price').html(data.price);
+            $('#menu-name').html(data.name);
+
+            $('#initial-price').val(data.price);
+            $('#addToCartModal').modal('show');
+
+        }
+    });
+
+}
 

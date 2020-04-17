@@ -150,6 +150,7 @@ footer {
 
 .cart-modal-footer .sub-total a {
     text-decoration: none;
+    cursor: pointer;
 }
 
 .cart-modal-footer .sub-total .items-total {
