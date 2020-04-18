@@ -4,10 +4,10 @@
     <div class="row mb-2">
         <div class="col-12">
             <!-- Button trigger modal -->
-            <button id="addMenuModalE" type="button" class="btn btn-info" data-toggle="modal" data-target="addMenuModal">
+            <a href="#" class="btn btn-info" onclick="addMenuModal()">
                 <i class="fa fa-plus"></i>
                 Add menu
-            </button>
+            </a>
         </div>
     </div>
     {{--END OF UBTTON SECTION--}}

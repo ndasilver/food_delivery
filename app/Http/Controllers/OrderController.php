@@ -17,7 +17,7 @@ class OrderController extends Controller
     public function index()
     {
         $page_title= "Order";
-        $orders = Order::with('order_item','order_item.menu','status')
+        $orders = Order::with('order_item','order_item.menu','order_item.side_dish','status','payment')
             ->orderBy('id','desc')
             ->paginate('20');
 //        return  $orders;
@@ -115,8 +115,18 @@ class OrderController extends Controller
      * @param  \App\order  $order
      * @return \Illuminate\Http\Response
      */
-    public function destroy(order $order)
-    {
-        //
+    public function approve($id){
+        Order::where('id',$id)->update(['status_id'=>2]);
+
+        /************************** THIS IS WHERE SMS COMES ********************/
+
+        return redirect()->back()->with('success', 'You have successfully approved the order');
+    }
+    public function reject($id){
+        Order::where('id',$id)->update(['status_id'=>3]);
+
+        /************************** THIS IS WHERE SMS COMES ********************/
+
+        return redirect()->back()->with('success', 'You have successfully approved the order');
     }
 }

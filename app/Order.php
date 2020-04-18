@@ -22,4 +22,7 @@ class Order extends Model
     public function status(){
         return $this->belongsTo('App\Status');
     }
+    public function payment(){
+        return $this->belongsTo('App\Payment','payment_method');
+    }
 }
