@@ -19,4 +19,7 @@ class Order_item extends Model
     public function menu(){
         return $this->belongsTo('App\Menu');
     }
+    public function side_dish(){
+        return $this->belongsTo('App\Side_dish');
+    }
 }

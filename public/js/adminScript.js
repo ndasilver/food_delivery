@@ -1,8 +1,6 @@
-const button = document.querySelector('#addMenuModalE');
-button.addEventListener('click',(e)=>{
-    e.preventDefault();
+const addMenuModal = ()=>{
     $('#addMenuModal').modal();
-});
+};
 
 $(document).ready(function () {
     const editButton = document.querySelector('.editMenuModalButton');
@@ -28,3 +26,53 @@ $(document).ready(function () {
         $('#editMenuModal').modal();
     });
 });
+
+let approveOrder = (id) => {
+    Swal.fire({
+        title: 'Are you sure you want to approve this order?',
+        text: "You won't be able to revert this!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes, approve it!'
+    }).then((result) => {
+        if (result.value) {
+            $.ajax({
+                url:`order/approve/${id}`,
+                type:'GET',
+                beforeSend:function () {
+
+                },
+                success:function () {
+                        location.reload();
+                }
+            });
+        }
+    });
+};
+
+let rejectOrder = (id) => {
+    Swal.fire({
+        title: 'Are you sure you want to reject this order?',
+        text: "You won't be able to revert this!",
+        icon: 'question',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes, reject it!'
+    }).then((result) => {
+        if (result.value) {
+            $.ajax({
+                url:`order/reject/${id}`,
+                type:'GET',
+                beforeSend:function () {
+
+                },
+                success:function () {
+                    location.reload();
+                }
+            });
+        }
+    });
+};

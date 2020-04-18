@@ -37,7 +37,9 @@ Route::group(['middleware' => 'cors'], function () {
 
 Auth::routes();
 Route::middleware(['auth'])->group(function (){
-    Route::get('admin','AdminController@index')->name('Admin Dashboard');
+    Route::get('admin','AdminController@index')->name('Admin.Dashboard');
+    Route::get('admin/order/approve/{id}','OrderController@approve')->name('order.approve');
+    Route::get('admin/order/reject/{id}','OrderController@reject')->name('order.reject');
     Route::resource('admin/menu','MenuController');
     Route::resource('admin/orders','OrderController');
 //Route::post('admin/menu','MenuController@store')->name('Admin Create menu item');
