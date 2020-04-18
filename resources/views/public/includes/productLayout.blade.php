@@ -4,14 +4,14 @@
 
         <div class="col-md">
             <div class="row">
-                <div class="col-4">
+                <div class="col-md-4 text-center">
                     <img src="/public_assets/images/{{ $product->image }}" alt="menu-image" class="img-thumbnail menu-img">
                 </div>
-                <div class="col-8">
-                    <div class="menu-title">
+                <div class="col-md-8">
+                    <div class="menu-title text-center">
                         <h4>{{ $product->name }}</h4>
                     </div>
-                    <div class="menu-desc">
+                    <div class="menu-desc text-center">
                         <p>
                             {{ $product->description }}
                         </p>

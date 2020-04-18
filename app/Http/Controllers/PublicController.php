@@ -136,5 +136,19 @@ class PublicController extends Controller
         return response()->json($menu);
     }
 
+    public function checkoutSuccess(){
+        $products = Menu::paginate(12);
+        $sideDish = Side_dish::all();
+        $payment_method = Payment::all();
+
+        $active = 'None';
+
+        return view('public.checkout-success')
+            ->with('products', $products)
+            ->with('side_dish', $sideDish)
+            ->with('payment_method', $payment_method)
+            ->with('active', $active);
+    }
+
 
 }

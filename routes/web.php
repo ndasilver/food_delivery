@@ -25,6 +25,7 @@ Route::post('/order', 'OrderController@store')->name('checkout.Cart');
 Route::get('/category/{id}', 'PublicController@category')->name('category');
 Route::get('/checkout', 'PublicController@checkout')->name('checkout');
 Route::get('/categories', 'PublicController@categories')->name('categories');
+Route::get('/checkout/successful', 'PublicController@checkoutSuccess')->name('checkout.successful');
 
 Route::get('/getMenuInfo/{id}', 'PublicController@getMenuInfo')->name('getMenuInfo');
 Route::group(['middleware' => 'cors'], function () {
