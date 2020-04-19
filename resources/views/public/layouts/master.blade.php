@@ -20,17 +20,23 @@
 </head>
 
 <body>
-<!-- Navigation bar -->
-@include('public.includes.navigation')
+<div id="page-container">
+    <div id="content-wrap">
+        <!-- Navigation bar -->
+        @include('public.includes.navigation')
 
-<!-- Page content goes here -->
-@yield('content')
-<!-- Add to cart Modal -->
-@include('public.includes.addToCartModal')
-<!-- Checkout Modal -->
-@include('public.includes.checkoutModal')
-<!-- Footer -->
-@include('public.includes.footer')
+        <!-- Page content goes here -->
+        @yield('content')
+        <!-- Add to cart Modal -->
+        @include('public.includes.addToCartModal')
+        <!-- Checkout Modal -->
+        @include('public.includes.checkoutModal')
+    </div>
+
+    <!-- Footer -->
+    @include('public.includes.footer')
+</div>
+
 
 <script src="{{ asset('vendor/jquery/jquery.min.js') }}"></script>
 <!--Jquery scripts -->
