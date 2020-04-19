@@ -39,7 +39,7 @@ let approveOrder = (id) => {
     }).then((result) => {
         if (result.value) {
             $.ajax({
-                url:`order/approve/${id}`,
+                url:`../admin/order/approve/${id}`,
                 type:'GET',
                 beforeSend:function () {
 
@@ -64,7 +64,7 @@ let rejectOrder = (id) => {
     }).then((result) => {
         if (result.value) {
             $.ajax({
-                url:`order/reject/${id}`,
+                url:`../admin/order/reject/${id}`,
                 type:'GET',
                 beforeSend:function () {
 
