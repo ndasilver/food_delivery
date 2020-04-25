@@ -9,9 +9,9 @@
             <div class="review-section">
                 <form role="form" method="POST" action="{{ route('submit.review') }}">
                     @csrf
-                    <input type="hidden" name="order_id" id="order_id" value="0">
+                    <input type="hidden" name="order_id" id="order_id" value="{{ $order }}">
                     <div class="form-group">
-                        <input type="email" class="form-control" id="email" placeholder="Email (optional)">
+                        <input type="email" class="form-control" id="email" name="email" placeholder="Email (optional)">
                     </div>
                     <div class="form-group">
                         <textarea class="form-control" id="review" name="review" rows="3" placeholder="Type your review here..." required></textarea>

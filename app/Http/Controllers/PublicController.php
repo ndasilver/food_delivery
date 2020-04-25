@@ -137,7 +137,7 @@ class PublicController extends Controller
         return response()->json($menu);
     }
 
-    public function checkoutSuccess(){
+    public function checkoutSuccess($order){
         $products = Menu::paginate(12);
         $sideDish = Side_dish::all();
         $payment_method = Payment::all();
@@ -148,6 +148,7 @@ class PublicController extends Controller
             ->with('products', $products)
             ->with('side_dish', $sideDish)
             ->with('payment_method', $payment_method)
+            ->with('order', $order)
             ->with('active', $active);
     }
 
