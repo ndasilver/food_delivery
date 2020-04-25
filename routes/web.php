@@ -26,6 +26,8 @@ Route::get('/category/{id}', 'PublicController@category')->name('category');
 Route::get('/checkout', 'PublicController@checkout')->name('checkout');
 Route::get('/categories', 'PublicController@categories')->name('categories');
 Route::get('/checkout/successful', 'PublicController@checkoutSuccess')->name('checkout.successful');
+Route::post('/submit/review', 'PublicController@store_review')->name('submit.review');
+Route::get('/submitted/review', 'PublicController@submitted_review')->name('review.submitted');
 
 Route::get('/getMenuInfo/{id}', 'PublicController@getMenuInfo')->name('getMenuInfo');
 Route::group(['middleware' => 'cors'], function () {

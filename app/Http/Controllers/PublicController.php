@@ -6,6 +6,7 @@ use App\Menu;
 use App\Category;
 
 use App\Payment;
+use App\Review;
 use App\Side_dish;
 use Illuminate\Http\Request;
 
@@ -148,6 +149,35 @@ class PublicController extends Controller
             ->with('side_dish', $sideDish)
             ->with('payment_method', $payment_method)
             ->with('active', $active);
+    }
+
+    public function submitted_review(){
+        $products = Menu::paginate(12);
+        $sideDish = Side_dish::all();
+        $payment_method = Payment::all();
+
+        $active = 'None';
+
+        return view('public.review-success')
+            ->with('products', $products)
+            ->with('side_dish', $sideDish)
+            ->with('payment_method', $payment_method)
+            ->with('active', $active);
+    }
+
+    public function store_review(Request $request){
+        $review = new Review();
+
+        if($request['email'] != ''){
+            $review->email = $request['email'];
+        }
+
+        $review->review = $request['review'];
+        $review->order_id = $request['order_id'];
+
+        $review->save();
+
+        return redirect()->route('review.submitted');
     }
 
 
