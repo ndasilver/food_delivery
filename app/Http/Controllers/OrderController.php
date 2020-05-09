@@ -72,7 +72,7 @@ class OrderController extends Controller
             ]);
     }
         session()->forget('cart');
-        return redirect()->route('checkout.successful');
+        return redirect()->route('checkout.successful', $order->id);
     }
 
     /**
