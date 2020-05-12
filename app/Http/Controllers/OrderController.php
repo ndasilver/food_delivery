@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Log;
 use App\order;
 use App\Order_item;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 class OrderController extends Controller
@@ -61,11 +63,13 @@ class OrderController extends Controller
                     "total_price" => $gTotal,
                     "status_id" => 1,
                 ]);
+        $order_id = $order->id;
         foreach ($sessions as $session){
 
             Order_item::create([
                 "menu_id" => $session['id'],
                 "order_id" => $order->id,
+                "side_dish_id" => $session['side_dish'],
                 "price" => $session['price'],
                 "quantity" => $session['quantity'],
                 "sub_total" => ($session['price'])*($session['quantity'])
@@ -115,15 +119,25 @@ class OrderController extends Controller
      * @param  \App\order  $order
      * @return \Illuminate\Http\Response
      */
-    public function approve($id){
+    public function approve(Request $request,$id){
         Order::where('id',$id)->update(['status_id'=>2]);
+        Log::create([
+            "description" => "approved order id ".$id,
+            "user_id" => Auth::user()->id,
+            "address" => $request->getClientIp()
+        ]);
 
         /************************** THIS IS WHERE SMS COMES ********************/
 
         return redirect()->back()->with('success', 'You have successfully approved the order');
     }
-    public function reject($id){
+    public function reject(Request $request, $id){
         Order::where('id',$id)->update(['status_id'=>3]);
+        Log::create([
+            "description" => "rejected order id ".$id,
+            "user_id" => Auth::user()->id,
+            "address" => $request->getClientIp()
+        ]);
 
         /************************** THIS IS WHERE SMS COMES ********************/
 
