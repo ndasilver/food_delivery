@@ -17,6 +17,8 @@
 
 //--------------- Public Routes -----------------
 
+use App\Http\Controllers\ConfigurationController;
+
 Route::get('/', 'PublicController@index')->name('home');
 Route::get('/cart', 'PublicController@cart')->name('cart');
 Route::get('/add-to-cart/{id}/{quantity}/side/{side_dish}', 'PublicController@addToCart')->name('AddToCart');
@@ -45,6 +47,13 @@ Route::middleware(['auth'])->group(function (){
     Route::get('admin/order/reject/{id}','OrderController@reject')->name('order.reject');
     Route::resource('admin/menu','MenuController');
     Route::resource('admin/orders','OrderController');
+    Route::resource('admin/settings', 'ConfigurationController');
+
+    Route::post('admin/settings/edit/name/{id}', 'ConfigurationController@editName')->name('edit.name');
+    Route::post('admin/settings/edit/terms/{id}', 'ConfigurationController@editTerms')->name('edit.terms');
+    Route::post('admin/settings/edit/sms/{id}', 'ConfigurationController@editSms')->name('edit.sms');
+    Route::post('admin/settings/edit/email/{id}', 'ConfigurationController@editEmail')->name('edit.email');
+    Route::post('admin/settings/edit/currency/{id}', 'ConfigurationController@editCurrency')->name('edit.currency');
 //Route::post('admin/menu','MenuController@store')->name('Admin Create menu item');
     Route::resource('admin/categories', 'CategoryController')->names([
         'store' => 'categories.store',
