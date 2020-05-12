@@ -3,6 +3,11 @@
         <img src="/public_assets/images/cp logo.png" width="50" height="50" class="d-inline-block align-top" alt="Top-logo">
         <span class="brand-name"> Classic Hotel </span>
     </a>
+    <a href="#" class="display-mobile mr-4">
+        <i class="fa fa-shopping-cart">
+            <span class="card-number cartQuantityCounter">0</span>
+        </i>
+    </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsingNavbar3">
         <span class="navbar-toggler-icon"></span>
     </button>

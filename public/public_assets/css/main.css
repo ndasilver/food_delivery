@@ -186,6 +186,9 @@ ul.side-choices {
     font-size: 16px;
     margin-left: 10px;
 }
+.display-mobile{
+    display: none;
+}
 
 @media (min-width: 992px) {
     .navbar-expand-lg .navbar-nav .nav-link {
@@ -196,6 +199,26 @@ ul.side-choices {
         padding-left: 20px;
         padding-right: 20px;
         font-size: 14px;
+    }
+}
+@media (max-width: 991.98px){
+    .display-mobile{
+        display: inline-block !important;
+    }
+    .card-number{
+        position: absolute;
+        z-index: 1;
+        width: 15px;
+        height: 15px;
+        border-radius: 50%;
+        color: #f6fffd;
+        text-align: center;
+        letter-spacing: 0 !important;
+        font-weight: 400 !important;
+        font-size: 11px !important;
+        border: 1px solid transparent;
+        background: #1eb7b0;
+        line-height: 13px;
     }
 }
 @media screen and (max-width: 600px) {
@@ -337,5 +360,8 @@ div.pagination-controls nav ul{
 .review-section .form-group .form-control{
     width: 100% !important;
 }
-
+.display-mobile i {
+    font-size: 30px;
+    color: rgba(0,0,0,.5);
+}
 

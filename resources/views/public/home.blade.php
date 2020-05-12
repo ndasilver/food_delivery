@@ -11,7 +11,7 @@
                 </div>
 
                 <div class="col-4">
-                    <button class="btn btn-primary btn-main-search float-left" type="submit">Search</button>
+                    <button class="btn btn-primary btn-main-search float-left" type="submit" style="min-width: 70px">Search</button>
                 </div>
             </div>
         </form>
