@@ -201,7 +201,7 @@ ul.side-choices {
         font-size: 14px;
     }
 }
-@media (max-width: 991.98px){
+@media (max-width: 767px){
     .display-mobile{
         display: inline-block !important;
     }
@@ -364,4 +364,6 @@ div.pagination-controls nav ul{
     font-size: 30px;
     color: rgba(0,0,0,.5);
 }
-
+.minwidth-110{
+    min-width: 110px;
+}
