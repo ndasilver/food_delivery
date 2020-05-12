@@ -143,6 +143,7 @@ const addToDropDownCart = ()=> {
                 counter++;
             })
             document.getElementById("cartQuantityCounter").innerHTML = counter;
+            $(".cartQuantityCounter").html(counter);
         } else {
             console.error("error occured");
         }
