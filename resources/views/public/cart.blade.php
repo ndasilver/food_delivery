@@ -6,7 +6,7 @@
         <h2 class="page-title">Cart</h2>
     </div>
 </div>
-    <div class="container">
+    <div class="container table-responsive">
 
         <div class = "cart">
             <table class="table table-striped text-center">
@@ -72,20 +72,20 @@
                 </tbody>
               </table>
         </div>
-        <div class="row">
-            <div class="col-md">
+        <div class="row buttonCart-view">
+            <div class="col">
                 <a href="{{ route('home') }}" class="btn btn-sm btn-primary btn-cart-page">
                     Continue Shopping
                 </a>
             </div>
-            <div class="col-md text-center">
+            <div class="col text-center">
                 @if(count($products) > 0)
                 <a href="" class="btn btn-sm btn-danger btn-cart-page">
                     Clear Cart
                 </a>
                 @endif
             </div>
-            <div class="col-md ">
+            <div class="col ">
                 @if(count($products) > 0)
                 <button type="button" class="btn btn-sm btn-success float-right btn-cart-page" data-toggle="modal" data-target="#checkoutModal">
                     Checkout
