@@ -1,11 +1,10 @@
 <div class="row menu-items">
     <?php $col_counter = 0 ?>
     @foreach($products as $product)
-
-        <div class="col-md">
+        <div class="col-md-6 mt-5 pl-5 pr-4">
             <div class="row">
                 <div class="col-md-4 text-center">
-                    <img src="/public_assets/images/{{ $product->image }}" alt="menu-image" class="img-thumbnail menu-img">
+                    <img src="/public_assets/images/{{ $product->image }}" style="min-width: 110px" alt="menu-image" class="img-thumbnail menu-img">
                 </div>
                 <div class="col-md-8">
                     <div class="menu-title text-center">
@@ -17,19 +16,22 @@
                         </p>
                     </div>
 
-                    <div class="">
-                            <span class="price float-left">
-                                <h5>
+                    <div class="row text-center">
+                        <div class="col-md-6">
+                            <span class="price">
+                                <h5 class="minwidth-110">
                                     {{ number_format($product->price) }} Rwf
                                 </h5>
                             </span>
-
-                        <span class="add-to-cart float-right">
-                                <button type="button" class="btn btn-primary btn-sm btn-add-to-cart"  onclick="getItemId({{ $product->id }})" >
+                        </div>
+                        <div class="col-md-6">
+                        <span class="add-to-cart">
+                                <button type="button" class="btn btn-primary btn-sm btn-add-to-cart minwidth-110"  onclick="getItemId({{ $product->id }})" >
                                     <input class="itemId" value="{{ $product->id }}" hidden>
                                     <i class="fa fa-plus-circle"></i> Add to cart
                                 </button>
                             </span>
+                        </div>
                     </div>
                 </div>
             </div>

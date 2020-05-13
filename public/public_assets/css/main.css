@@ -201,10 +201,13 @@ ul.side-choices {
         font-size: 14px;
     }
 }
-@media (max-width: 991.98px){
+@media (max-width: 767px){
     .display-mobile{
         display: inline-block !important;
     }
+    /*.buttonCart-view{*/
+    /*    text-align: center !important;*/
+    /*}*/
     .card-number{
         position: absolute;
         z-index: 1;
@@ -270,6 +273,7 @@ ul.side-choices {
 
 a.btn-cart-page {
     width: 50%;
+    min-width: 120px;
 }
 
 .cart-action {
@@ -364,4 +368,55 @@ div.pagination-controls nav ul{
     font-size: 30px;
     color: rgba(0,0,0,.5);
 }
-
+.minwidth-110{
+    min-width: 110px;
+}
+.cart-view-sm{
+    background: white;
+    right: 0;
+    top: 0;
+    height: 100%;
+    width: 80%;
+    position: fixed;
+    z-index: 15;
+    transition:visibility 0.3s linear,opacity 0.3s linear;
+}
+.cart-view-sm .btn {
+    color: white;
+}
+.widget-header{
+    width: 100%;
+    display: flex;
+    padding: 15px;
+    border-bottom: 1px solid #00000030;
+    text-transform: uppercase;
+}
+.widget-title{
+    flex: 1 1 auto;
+}
+.overlay-sm{
+    height: 100%;
+    width: 100%;
+    background-color: #000000a3;
+    position: fixed;
+    top: 0;
+    opacity: 1;
+    transition:visibility 0.3s linear,opacity 0.3s linear;
+}
+.widget-header a{
+    text-decoration: none;
+    color: black;
+    cursor: pointer;
+}
+.widget-view-footer{
+    position: absolute;
+    bottom: 0;
+}
+#cartItem-sm .item{
+    padding: 15px;
+}
+#cartItem-sm img{
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+}

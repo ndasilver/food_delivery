@@ -129,19 +129,33 @@ let getData = (url,action,message)=> {
 const addToDropDownCart = ()=> {
     $(".itemCartDropDown").remove();
     $(".dropdown-divider").remove();
+    let totalCartPrice = 0;
     $.getJSON('../cart-items-cart', function (data, status) {
         if (status == "success") {
             let counter = 0;
             $.each(data, function (i, field) {
                 const itemID = i;
+                // console.log(totalPrice);
                 const postID = $(".itemCartDropDown").attr("id");
                 document.getElementById("dropdown-cart-items").insertAdjacentHTML('afterbegin', `
                          <div class="itemCartDropDown" id="${i}">
                             ${field.quantity}x ${field.name} = ${field.quantity * field.price}
                             </div>
                             <div class="dropdown-divider"></div>`);
+                document.getElementById("cartItem-sm").insertAdjacentHTML('afterbegin',`
+                <div class="row item">
+                    <div class="col-3 ">
+                    <img src="/public_assets/images/${field.image}">
+                    </div>
+                    <div class="col-9">
+                    <span>${field.quantity}x ${field.name} <span class="float-right">=${field.quantity * field.price}</span></span>
+                    </div>
+                </div>
+                `);
+                totalCartPrice += (field.quantity*field.price);
                 counter++;
-            })
+            });
+            document.getElementById("cartTotal-sm").insertAdjacentHTML('afterbegin',totalCartPrice);
             document.getElementById("cartQuantityCounter").innerHTML = counter;
             $(".cartQuantityCounter").html(counter);
         } else {
@@ -169,5 +183,17 @@ const getMenuData = (id) => {
         }
     });
 
+}
+
+const toggleShoppingCart = () =>{
+   const shoppingCart = document.getElementById("shoppingCartList");
+   const appOverlay = document.querySelector(".appOverlay");
+   if (shoppingCart.style.visibility === "hidden"){
+        shoppingCart.style.visibility = "visible";
+        appOverlay.style.visibility = "visible";
+   }else{
+       shoppingCart.style.visibility = "hidden";
+       appOverlay.style.visibility = "hidden";
+   }
 }
 
