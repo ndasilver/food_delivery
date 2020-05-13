@@ -26,7 +26,7 @@
 <div class="cart-view-sm" id="shoppingCartList" style="visibility: hidden">
     <div class="widget-header">
         <h5 class="widget-title">Shopping cart</h5>
-        <a href="#" onclick="toggleShoppingCart(); return false">close</a>
+        <a href="#" onclick="toggleShoppingCart(); return false">close x</a>
     </div> <!-- widget-header -->
     <div class="cart-view-sm-content">
         <div class="container">
