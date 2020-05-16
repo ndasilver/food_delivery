@@ -16,5 +16,7 @@ class DatabaseSeeder extends Seeder
          $this->call(status::class);
          $this->call(payment::class);
          $this->call(side_dish::class);
+         $this->call(curreny_seed::class);
+         $this->call(ConfigurationSeeder::class);
     }
 }

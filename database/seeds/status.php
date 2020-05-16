@@ -13,7 +13,6 @@ class status extends Seeder
      */
     public function run()
     {
-        Schema::drop('statuses');
         DB::table('statuses')->insert([
             'id'=> 1,
             'code' => 0,

@@ -116,7 +116,7 @@
             <span aria-hidden="true">×</span>
           </button>
         </div>
-        <form method="POST" action="{{ route('edit.currency', 1) }}">
+        <form method="POST" action="{{ route('edit.currencySeeder', 1) }}">
             @csrf
         <div class="modal-body">
         <label for ="currency">Currency</label>

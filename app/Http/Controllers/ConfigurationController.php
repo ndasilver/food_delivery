@@ -20,7 +20,7 @@ class ConfigurationController extends Controller
         return view('Admin.settings.index')
                 ->with('settings', $settings)
                 ->with('currencies', $currencies);
-        
+
     }
 
     public function editName(Request $request, $id){
@@ -61,7 +61,7 @@ class ConfigurationController extends Controller
 
     public function editCurrency(Request $request, $id){
         $config = Configuration::findOrFail($id);
-        $config->currency_id = $request['currency'];
+        $config->currency_id = $request['currencySeeder'];
         $config->save();
 
         return redirect()->back()

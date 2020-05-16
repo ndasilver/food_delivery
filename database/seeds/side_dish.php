@@ -12,7 +12,7 @@ class side_dish extends Seeder
     public function run()
     {
         DB::table('side_dishes')->insert([
-        "name" => "Chips"
+        "name" => "None"
     ]);
     }
 }

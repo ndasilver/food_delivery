@@ -16,10 +16,10 @@ class CreateReviewsTable extends Migration
         Schema::create('reviews', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('email')->nullable();
-            $table->integer('order_id');
-            $table->foreign('order_id')->references('id')->on('order');
+            $table->bigInteger('order_id')->unsigned();
             $table->string('review', 250);
             $table->timestamps();
+            $table->foreign('order_id')->references('id')->on('orders');
         });
     }
 

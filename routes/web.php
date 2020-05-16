@@ -53,7 +53,7 @@ Route::middleware(['auth'])->group(function (){
     Route::post('admin/settings/edit/terms/{id}', 'ConfigurationController@editTerms')->name('edit.terms');
     Route::post('admin/settings/edit/sms/{id}', 'ConfigurationController@editSms')->name('edit.sms');
     Route::post('admin/settings/edit/email/{id}', 'ConfigurationController@editEmail')->name('edit.email');
-    Route::post('admin/settings/edit/currency/{id}', 'ConfigurationController@editCurrency')->name('edit.currency');
+    Route::post('admin/settings/edit/currencySeeder/{id}', 'ConfigurationController@editCurrency')->name('edit.currencySeeder');
 //Route::post('admin/menu','MenuController@store')->name('Admin Create menu item');
     Route::resource('admin/categories', 'CategoryController')->names([
         'store' => 'categories.store',

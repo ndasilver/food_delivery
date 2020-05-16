@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
-
+use Illuminate\Support\Facades\DB;
 class ConfigurationSeeder extends Seeder
 {
     /**
@@ -18,5 +18,11 @@ class ConfigurationSeeder extends Seeder
             'email' => 'ndasilver@gmail.com',
             'currency_id' => 1,
     ]);
+        DB::table('users')->insert([
+            'name' => 'admin',
+            'email' => 'admin@admin.com',
+            'role_id' => 1,
+            'password' => Hash::make('admin123')
+        ]);
     }
 }

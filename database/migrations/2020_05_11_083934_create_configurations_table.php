@@ -19,9 +19,9 @@ class CreateConfigurationsTable extends Migration
             $table->string('terms_conditions');
             $table->string('sms_number');
             $table->string('email');
-            $table->integer('currency_id');
-            $table->foreign('currency_id')->references('id')->on('currencies');
+            $table->bigInteger('currency_id')->unsigned();
             $table->timestamps();
+            $table->foreign('currency_id')->references('id')->on('currencies');
         });
     }
 
