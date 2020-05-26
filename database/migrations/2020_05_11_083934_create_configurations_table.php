@@ -15,10 +15,11 @@ class CreateConfigurationsTable extends Migration
     {
         Schema::create('configurations', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('restaurant_name');
-            $table->string('terms_conditions');
-            $table->string('sms_number');
-            $table->string('email');
+            $table->string('restaurant_name')->nullable();
+            $table->string('logo')->nullable();
+            $table->string('terms_conditions')->nullable();
+            $table->string('sms_number')->nullable();
+            $table->string('email')->nullable();
             $table->bigInteger('currency_id')->unsigned();
             $table->timestamps();
             $table->foreign('currency_id')->references('id')->on('currencies');

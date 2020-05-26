@@ -17,6 +17,7 @@ class CreatePaymentsTable extends Migration
             $table->bigIncrements('id');
             $table->string('code',50);
             $table->string('name');
+            $table->tinyInteger('is_active');
             $table->timestamps();
         });
     }

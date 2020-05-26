@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Events\newOrderEvent;
 use App\Order;
 use Illuminate\Http\Request;
 

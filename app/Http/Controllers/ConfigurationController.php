@@ -31,6 +31,21 @@ class ConfigurationController extends Controller
         return redirect()->back()
             ->with('success', 'Restaurant name has been updated successfully!');
     }
+    public function editLogo(Request $request, $id){
+        $this->validate($request,['logo'=>'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048']);
+        if ($request->hasFile('logo')){
+            $image2 = $request->file('logo');
+            $image_name = 'logo'.time().'.'.$image2->getClientOriginalExtension();
+            $destinationPath = public_path('/public_assets/images/logo');
+            $image2->move($destinationPath,$image_name);
+        }
+        $config = Configuration::findOrFail($id);
+        $config->logo = $image_name;
+        $config->save();
+
+        return redirect()->back()
+            ->with('success', 'Logo has been updated successfully!');
+    }
 
     public function editTerms(Request $request, $id){
         $config = Configuration::findOrFail($id);
@@ -132,5 +147,9 @@ class ConfigurationController extends Controller
     public function destroy($id)
     {
         //
+    }
+    public function payment(){
+        return "this is payment";
+        return vieww('Admin.settings.payment.payment');
     }
 }

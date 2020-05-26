@@ -23,10 +23,11 @@
 @stop
 
 @section('css')
-    <link rel="stylesheet" href="/css/admin_custom.css">
+{{--    <link rel="stylesheet" href="/css/admin_custom.css">--}}
 @stop
 
 @section('js')
     <script> console.log('Hi!'); </script>
+    <script src="/js/app.js"></script>
     <script type="text/javascript" src="/js/adminScript.js"></script>
 @stop

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Events\newOrderEvent;
 use App\Menu;
 use App\Category;
 
@@ -15,6 +16,7 @@ class PublicController extends Controller
 
     public function index()
     {
+        event(new newOrderEvent());
         $products = Menu::paginate(12);
         $sideDish = Side_dish::all();
         $payment_method = Payment::all();

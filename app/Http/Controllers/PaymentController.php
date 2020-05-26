@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\User;
 
 use App\Payment;
 use Illuminate\Http\Request;
@@ -14,7 +15,7 @@ class PaymentController extends Controller
      */
     public function index()
     {
-        //
+        return view('Admin.settings.payment.payment');
     }
 
     /**
@@ -25,6 +26,21 @@ class PaymentController extends Controller
     public function create()
     {
         //
+    }
+    public function charge($price){
+        \Stripe\Stripe::setApiKey('sk_test_QGnjFWPtRQ9ahAybi8ySoj4W00hlqjpqYg');
+
+        $paymentMethod = \Stripe\PaymentMethod::create([
+            'type' => 'card',
+            'card' => [
+                'number' => '4242424242424242',
+                'exp_month' => 5,
+                'exp_year' => 2021,
+                'cvc' => '314',
+            ],
+        ]);
+        $stripeCharge = charge(100, $paymentMethod);
+        return $stripeCharge;
     }
 
     /**

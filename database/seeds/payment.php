@@ -14,7 +14,13 @@ class payment extends Seeder
     {
         DB::table('payments')->insert([
             "code" => "cash",
-            "name" => "Cash on Deliver"
-        ]);
+            "name" => "Cash on Deliver",
+            "is_active" => 1
+        ],
+            [
+                "code" => "stripe",
+                "name" => "Credit Card",
+                "is_active" => 0
+            ]);
     }
 }

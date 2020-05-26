@@ -61,7 +61,7 @@
                   @endforeach
                     <tr>
                         <td colspan="5" style="text-align: left;font-weight: bold">G.Total</td>
-                        <td style="font-weight: bold">{{ number_format($gTotal) }}</td>
+                        <td style="font-weight: bold"> {{ \App\Configuration::find(1)->currency->currency_code }} {{ number_format($gTotal) }}</td>
                         <td></td>
                     </tr>
                  @else

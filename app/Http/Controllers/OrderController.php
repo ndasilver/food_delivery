@@ -5,9 +5,12 @@ namespace App\Http\Controllers;
 use App\Log;
 use App\order;
 use App\Order_item;
+use App\Payment;
+use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Stripe\Stripe;
 
 class OrderController extends Controller
 {
@@ -44,16 +47,34 @@ class OrderController extends Controller
      */
     public function store(Request $request)
     {
-        $data = [];
-        $newDat ="";
-        $gTotal = 0;
-        $subTotal =0;
+        $payment_method = $request->payment_method;
+        $payment_code = Payment::find($payment_method);
         $sessions = session()->get('cart');
-        foreach ($sessions as $newSession){
-            $subTotal = ($newSession['price'])*($newSession['quantity']);
-            $gTotal += $subTotal;
-        }
-        $order =Order::create([
+//        if payment method is tripe
+        if ($payment_code->code == 'stripe') {//stripe must match the stripe code field in the payments table
+            $data = [];
+            $newDat ="";
+            $gTotal = 0;
+            $subTotal =0;
+            $sessions = session()->get('cart');
+            foreach ($sessions as $newSession){
+                $subTotal = ($newSession['price'])*($newSession['quantity']);
+                $gTotal += $subTotal;
+            }
+
+            \Stripe\Stripe::setApiKey('sk_test_QGnjFWPtRQ9ahAybi8ySoj4W00hlqjpqYg');
+
+            // `source` is obtained with Stripe.js; see https://stripe.com/docs/payments/accept-a-payment-charges#web-create-token
+            $charge = \Stripe\Charge::create([
+                'amount' => $gTotal*100,
+                'currency' => 'usd',
+                'source' => $request->stripeToken,
+                'description' => 'My First Test Charge (created for API docs)',
+            ]);
+            $status = $charge['status'];
+//        if payment has succeeded proceed with the order
+            if ($status == "succeeded"){
+                $order =Order::create([
                     "owner"=>$request->owner,
                     "phone" =>$request->phone,
                     "location" => $request->location,
@@ -63,20 +84,58 @@ class OrderController extends Controller
                     "total_price" => $gTotal,
                     "status_id" => 1,
                 ]);
-        $order_id = $order->id;
-        foreach ($sessions as $session){
 
-            Order_item::create([
-                "menu_id" => $session['id'],
-                "order_id" => $order->id,
-                "side_dish_id" => $session['side_dish'],
-                "price" => $session['price'],
-                "quantity" => $session['quantity'],
-                "sub_total" => ($session['price'])*($session['quantity'])
+                $order_id = $order->id;
+                foreach ($sessions as $session){
+
+                    Order_item::create([
+                        "menu_id" => $session['id'],
+                        "order_id" => $order->id,
+                        "side_dish_id" => $session['side_dish'],
+                        "price" => $session['price'],
+                        "quantity" => $session['quantity'],
+                        "sub_total" => ($session['price'])*($session['quantity'])
+                    ]);
+                }
+                    session()->forget('cart');
+                return redirect()->route('checkout.successful', $order->id);
+            }
+
+        }else{// if payment is not stripe
+            $data = [];
+            $newDat ="";
+            $gTotal = 0;
+            $subTotal =0;
+            $sessions = session()->get('cart');
+            foreach ($sessions as $newSession){
+                $subTotal = ($newSession['price'])*($newSession['quantity']);
+                $gTotal += $subTotal;
+            }
+            $order =Order::create([
+                "owner"=>$request->owner,
+                "phone" =>$request->phone,
+                "location" => $request->location,
+                "street"=> $request->location,
+                "location_info" => $request->location_info,
+                "payment_method" => $request->payment_method,
+                "total_price" => $gTotal,
+                "status_id" => 1,
             ]);
-    }
-        session()->forget('cart');
-        return redirect()->route('checkout.successful', $order->id);
+            $order_id = $order->id;
+            foreach ($sessions as $session){
+
+                Order_item::create([
+                    "menu_id" => $session['id'],
+                    "order_id" => $order->id,
+                    "side_dish_id" => $session['side_dish'],
+                    "price" => $session['price'],
+                    "quantity" => $session['quantity'],
+                    "sub_total" => ($session['price'])*($session['quantity'])
+                ]);
+            }
+            session()->forget('cart');
+            return redirect()->route('checkout.successful', $order->id);
+        }
     }
 
     /**

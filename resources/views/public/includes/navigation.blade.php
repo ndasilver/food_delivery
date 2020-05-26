@@ -1,6 +1,6 @@
 <nav class="navbar navbar-light navbar-expand-md bg-faded justify-content-center">
     <a href="/" class="navbar-brand d-flex mr-auto" style="width: 34%!important;">
-        <img src="/public_assets/images/cp logo.png" width="50" height="50" class="d-inline-block align-top" alt="Top-logo">
+        <img src="/public_assets/images/logo/{{ \App\Configuration::find(1)->logo }}" width="50" height="50" class="d-inline-block align-top" alt="Top-logo">
         <span class="brand-name"> Classic Hotel </span>
     </a>
     <a href="#" class="display-mobile mr-4" onclick="toggleShoppingCart(); return false">
@@ -47,7 +47,7 @@
         <ul class="nav navbar-nav ml-auto w-100 justify-content-end">
             <li class="nav-item dropdown">
                 <a href="#" class="btn btn-success my-2 my-sm-0 btn-cart-top" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    (<span id="cartQuantityCounter"></span>)<i class="fa fa-shopping-cart top-nav"></i>
+                    <span id="cartQuantityCounter"></span><i class="fa fa-shopping-cart top-nav"></i>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
                     <div class="dropdown-cart-items">

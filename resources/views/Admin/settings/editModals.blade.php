@@ -25,6 +25,33 @@
     <!-- /.modal-dialog -->
   </div>
 
+<!-- Logo modal-->
+<div class="modal fade" id="logo-modal" style="display: none;" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Update Logo</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <form method="POST" enctype="multipart/form-data" action="{{ route('edit.logo', 1) }}">
+                @csrf
+                <div class="modal-body">
+                    <label for ="name">Logo</label>
+                    <input class = "form-control" type="file" name="logo" required/>
+                </div>
+                <div class="modal-footer justify-content-between">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Save changes</button>
+                </div>
+            </form>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+
   <!-- Terms and conditions modal-->
 <div class="modal fade" id="terms-modal" style="display: none;" aria-hidden="true">
     <div class="modal-dialog">

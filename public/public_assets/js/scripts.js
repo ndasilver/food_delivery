@@ -43,25 +43,6 @@ $('#addToCartModal').on('hidden.bs.modal', function (e) {
     $("#default-selection").prop('checked', true);
 })
 
-// Functions to display/hide change box
-$(function() {
-    $('#cash').click(function() {
-        if ($(this).is(':checked')) {
-            $('#change-box').show();
-        } else {
-            $('#change-box').hide();
-        }
-    });
-});
-
-$(function() {
-    $('#momo').click(function() {
-        if ($(this).is(':checked')) {
-            $('#change-box').hide();
-        }
-    });
-});
-
 
 
 // Function to disable/enable checkout button
@@ -86,6 +67,7 @@ let getItemId = (itemId) => {
 
 };
 
+// function for adding to cart
 const addToCart = ()=>{
    const ItemId = document.getElementById("clickedItemId").value;
    const cartPrice = document.getElementById("cart-price");

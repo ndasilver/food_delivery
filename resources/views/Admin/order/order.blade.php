@@ -25,7 +25,7 @@
                             <th>Qty</th>
                             <th>Order</th>
                             <th>Price</th>
-                            <th>Total</th>
+                            <th>Total<br/>({{ \App\Configuration::find(1)->currency->currency_code }})</th>
                             <th>Payment<br/> method</th>
                             <th>Status</th>
                             <th>Actions</th>

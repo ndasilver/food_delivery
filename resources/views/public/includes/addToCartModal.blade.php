@@ -39,7 +39,7 @@
                 <div class="float-right">
                     <button type="button" class="btn btn-success" id="addItemToCart" onclick="addToCart()">
                         <input type="text" id="clickedItemId" value="" hidden>
-                        Add to cart <small class="muted">Rwf <span id="cart-price">6500</span></small>
+                        Add to cart <small class="muted">{{ \App\Configuration::find(1)->currency->currency_code }} <span id="cart-price"></span></small>
                     </button>
                 </div>
             </div>

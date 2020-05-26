@@ -20,7 +20,7 @@
                         <div class="col-md-6">
                             <span class="price">
                                 <h5 class="minwidth-110">
-                                    {{ number_format($product->price) }} Rwf
+                                    {{ number_format($product->price) }} {{ \App\Configuration::find(1)->currency->currency_code }}
                                 </h5>
                             </span>
                         </div>

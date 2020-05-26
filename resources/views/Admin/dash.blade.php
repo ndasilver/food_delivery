@@ -55,7 +55,7 @@
 
                 <div class="info-box-content">
                     <span class="info-box-text">Total Sales</span>
-                    <span class="info-box-number">{{ number_format(\App\Order::all()->sum('total_price')) }}</span>
+                    <span class="info-box-number"> {{ \App\Configuration::find(1)->currency->currency_code }} {{ number_format(\App\Order::all()->sum('total_price')) }}</span>
                 </div>
                 <!-- /.info-box-content -->
             </div>
@@ -84,7 +84,7 @@
                             <th>Order</th>
                             <th>Qty</th>
                             <th>Price</th>
-                            <th>Total</th>
+                            <th>Total<br/>({{ \App\Configuration::find(1)->currency->currency_code }})</th>
                             <th>Payment<br/> method</th>
                             <th>Status</th>
                             <th>Actions</th>
