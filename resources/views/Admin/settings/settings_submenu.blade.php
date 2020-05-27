@@ -20,7 +20,7 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a href="#" class="nav-link">
+                <a href="{{route('settings.notification')}}" class="nav-link @if(Route::is('settings.notification')) active @endif">
                     <i class="far fa-bell"></i> Push Notification
                 </a>
             </li>

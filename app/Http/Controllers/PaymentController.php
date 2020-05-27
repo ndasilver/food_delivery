@@ -85,7 +85,16 @@ class PaymentController extends Controller
      */
     public function update(Request $request, Payment $payment)
     {
-        //
+        $payment_check = $request->enable_stripe;
+        if ($payment_check){
+            Payment::where('code','stripe')
+                ->update(['is_active'=>1]);
+            return back()->with('success','successfully activated the payment');
+        }else{
+            Payment::where('code','stripe')
+                ->update(['is_active'=>0]);
+            return back()->with('success','successfully de-activated the payment');
+        }
     }
 
     /**

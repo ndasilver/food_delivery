@@ -37,7 +37,7 @@ class UsersController extends Controller
             ->with('success','User updated successfully');
     }
     public function edit($id){
-        $users = User::find($id)->with('role')->get();
+        $users = User::where('id',$id)->with('role')->get();
 //        return $users;
         return view('Admin.settings.users.editUser',compact('id','users'));
     }

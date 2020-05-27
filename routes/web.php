@@ -59,6 +59,9 @@ Route::middleware(['auth'])->group(function (){
     Route::post('admin/settings/edit/logo/{id}', 'ConfigurationController@editLogo')->name('edit.logo');
     Route::post('admin/settings/edit/currencySeeder/{id}', 'ConfigurationController@editCurrency')->name('edit.currencySeeder');
     Route::get('admin/settings/payment','PaymentController@index')->name('settings.payment');
+    Route::get('admin/settings/notification','NotificationController@index')->name('settings.notification');
+    Route::post('admin/settings/payment','PaymentController@update')->name('settings.payment.update');
+    Route::post('admin/settings/notification','NotificationController@update')->name('settings.notification.update');
     Route::get('admin/setting/users','UsersController@index')->name('users.list');
     Route::post('admin/setting/users','UsersController@update')->name('users.update');
     Route::get('admin/setting/users/edit/{id}','UsersController@edit')->name('users.edit');

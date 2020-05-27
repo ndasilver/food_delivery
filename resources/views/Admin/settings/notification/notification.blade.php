@@ -10,53 +10,62 @@
                 <div class="col-md-9">
                     <div class="card card-info">
                         <div class="card-header">
-                            <h3 class="card-title">Payment</h3>
+                            <h3 class="card-title">Order Notification</h3>
                         </div>
                         <div class="card-body p-5">
 
-                            <form method="POST" action="{{ route('settings.payment.update') }}" accept-charset="UTF-8">
+                            <form method="POST" action="{{ route('settings.notification.update') }}" accept-charset="UTF-8">
                                 @csrf
                                 <div class="row">
                                     <h5 class="col-12 pb-4">
-                                        <i class="fab fa-cc-stripe"></i> Stripe</h5>
-                                    <!-- 'Boolean enable_facebook Field' -->
-                                    <div class="form-group row col-12">
-                                        <label for="enable_stripe" class="col-2 control-label text-right">Enable Stripe</label>
-                                        <div class="form-group">
-                                            <label class=""></label>
-                                            @foreach(\App\Payment::where('code','stripe')->get() as $stripe)
-                                                    <input @if($stripe->is_active == 1)checked="checked" @endif name="enable_stripe" type="checkbox" id="enable_stripe">
-                                            @endforeach
-                                                <small>Check it to enable Stripe payment method</small>
-                                        </div>
-                                    </div>
+                                        <i class="fa fa-bell"></i> Notification</h5>
+
                                     <div class="col-6">
                                     <!-- stripe_app_id Field -->
                                     <div class="form-group">
-                                        <label for="stripe_key" class="control-label">Stripe Key</label>
-                                            <input class="form-control" placeholder="Stripe Key Here" name="stripe_key" type="text" disabled value="{{env('STRIPE_KEY')}}" id="stripe_key">
+                                        <label for="stripe_key" class="control-label">Pusher App ID</label>
+                                            <input class="form-control" name="" type="text" disabled value="{{env('PUSHER_APP_ID')}}" id="">
                                             <div class="form-text text-muted">
-                                                Preview of the Stripe Key
+                                                Preview of the Pusher App ID
                                             </div>
                                     </div>
                                     </div>
                                     <div class="col-6">
                                     <!-- stripe_app_secret Field -->
                                     <div class="form-group6">
-                                        <label for="stripe_secret" class="control-label">Stripe Secret</label>
-                                            <input class="form-control" placeholder="Stripe Secret Here" name="stripe_secret" disabled type="text" value="{{env('STRIPE_SECRET')}}" id="stripe_secret">
+                                        <label for="stripe_secret" class="control-label">Pusher App Key</label>
+                                            <input class="form-control" disabled type="text" value="{{env('PUSHER_APP_KEY')}}">
                                             <div class="form-text text-muted">
-                                                Preview of the Stripe Secret
+                                                Preview of the Pusher App Key
                                             </div>
                                     </div>
                                     </div>
+                                    <div class="col-6">
+                                        <div class="form-group6">
+                                            <label for="stripe_secret" class="control-label">Pusher App Secret</label>
+                                            <input class="form-control" disabled type="text" value="{{env('PUSHER_APP_SECRET')}}">
+                                            <div class="form-text text-muted">
+                                                Preview of the Pusher App Secret
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-6">
+                                        <div class="form-group6">
+                                            <label for="stripe_secret" class="control-label">Pusher App Cluster</label>
+                                            <input class="form-control" disabled type="text" value="{{env('PUSHER_APP_CLUSTER')}}">
+                                            <div class="form-text text-muted">
+                                                Preview of the Pusher App Cluster
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
 
                                     <!-- label help here --->
 
-                                    <div class="col-12 callout callout-warning">
-                                        <h5>Changing stripe key and secret</h5>
+                                    <div class="callout callout-warning">
+                                        <h5>Changing Pusher App ID, Key, Secret and Cluster</h5>
 
-                                        <p>Please change the stripe key and secret in .env file</p>
+                                        <p>Please change the Pusher App ID, Key, Secret and Cluster in .env file</p>
                                     </div>
 
 

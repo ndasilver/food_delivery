@@ -43350,37 +43350,32 @@ module.exports = function(module) {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-/**
- * First we will load all of this project's JavaScript dependencies which
- * includes Vue and other libraries. It is a great starting point when
- * building robust, powerful web applications using Vue and Laravel.
- */
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
-/**
- * The following block of code may be used to automatically register your
- * Vue components. It will recursively scan this directory for the Vue
- * components and automatically register them with their "basename".
- *
- * Eg. ./components/ExampleComponent.vue -> <example-component></example-component>
- */
-// const files = require.context('./', true, /\.vue$/i)
-// files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
-// Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 
-/**
- * Next, we will create a fresh Vue application instance and attach it to
- * the page. Then, you may begin adding components to this application
- * or customize the JavaScript scaffolding to fit your unique needs.
- */
-// const app = new Vue({
-//     el: '#app',
-//     created(){
-//         Echo.channel('private-channel-order')
-//             .listen('newOrderEvent', (e) => {
-//                 console.log("order created");
-//             });
-//     }
-// });
+Echo.channel('channel-order').listen('newOrderEvent', function (e) {
+  console.log(e.order);
+  var d = new Date();
+  var date = "".concat(d.getFullYear(), "-").concat(d.getMonth(), "-").concat(d.getDate(), "  ").concat(d.getHours(), ":").concat(d.getMinutes());
+  toastr.options = {
+    "closeButton": true,
+    "debug": false,
+    "newestOnTop": true,
+    "progressBar": false,
+    "positionClass": "toast-top-right",
+    "preventDuplicates": false,
+    "onclick": null,
+    "showDuration": "300000",
+    "hideDuration": "100000",
+    "timeOut": 0,
+    "extendedTimeOut": 0,
+    "showEasing": "swing",
+    "hideEasing": "linear",
+    "showMethod": "fadeIn",
+    "hideMethod": "fadeOut",
+    "tapToDismiss": false
+  };
+  toastr["info"]("New order placed from ".concat(e.order.owner, ".<br> Consider refreshing orders page<br>").concat(date), " New order No: ".concat(e.order.id));
+});
 
 /***/ }),
 

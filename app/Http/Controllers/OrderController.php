@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Events\newOrderEvent;
 use App\Log;
 use App\order;
 use App\Order_item;
@@ -97,6 +98,8 @@ class OrderController extends Controller
                         "sub_total" => ($session['price'])*($session['quantity'])
                     ]);
                 }
+                $order = Order::findOrFail($order_id);
+                event(new newOrderEvent($order));
                     session()->forget('cart');
                 return redirect()->route('checkout.successful', $order->id);
             }
@@ -133,6 +136,8 @@ class OrderController extends Controller
                     "sub_total" => ($session['price'])*($session['quantity'])
                 ]);
             }
+            $order = Order::findOrFail($order_id);
+            event(new newOrderEvent($order));
             session()->forget('cart');
             return redirect()->route('checkout.successful', $order->id);
         }

@@ -6,6 +6,7 @@ use App\Events\newOrderEvent;
 use App\Menu;
 use App\Category;
 
+use App\Order;
 use App\Payment;
 use App\Review;
 use App\Side_dish;
@@ -16,7 +17,6 @@ class PublicController extends Controller
 
     public function index()
     {
-        event(new newOrderEvent());
         $products = Menu::paginate(12);
         $sideDish = Side_dish::all();
         $payment_method = Payment::all();
