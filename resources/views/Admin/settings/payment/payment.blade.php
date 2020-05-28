@@ -54,7 +54,7 @@
                                     <!-- label help here --->
 
                                     <div class="col-12 callout callout-warning">
-                                        <h5>Changing stripe key and secret</h5>
+                                        <h5><b>Changing stripe key and secret</b></h5>
 
                                         <p>Please change the stripe key and secret in .env file</p>
                                     </div>
@@ -72,12 +72,12 @@
 {{--                                    </div>--}}
 
                                     <!-- Submit Field -->
-                                    <div class="form-group mt-4 col-12 text-right">
-                                        <button type="submit" class="btn btn-primary">
-                                            <i class="fa fa-save"></i> Save Payment
-                                        </button>
-                                        <a href="#" class="btn btn-default"><i class="fa fa-undo"></i> Cancel</a>
-                                    </div>
+{{--                                    <div class="form-group mt-4 col-12 text-right">--}}
+{{--                                        <button type="submit" class="btn btn-primary">--}}
+{{--                                            <i class="fa fa-save"></i> Save Payment--}}
+{{--                                        </button>--}}
+{{--                                        <a href="#" class="btn btn-default"><i class="fa fa-undo"></i> Cancel</a>--}}
+{{--                                    </div>--}}
                                 </div>
                             </form>
 

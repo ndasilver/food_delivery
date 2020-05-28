@@ -1,4 +1,4 @@
-var stripe = Stripe('pk_test_bohfuGVRRIElFYaR89rMqTgb00Cp0w6SRd');
+var stripe = Stripe(stripeKeyGlobal);
 var elements = stripe.elements();
 
 // Custom styling can be passed to options when creating an Element.

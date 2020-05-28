@@ -63,9 +63,11 @@
                                     <!-- label help here --->
 
                                     <div class="callout callout-warning">
-                                        <h5>Changing Pusher App ID, Key, Secret and Cluster</h5>
+                                        <h5><b>Changing Pusher App ID, Key, Secret and Cluster</b></h5>
 
                                         <p>Please change the Pusher App ID, Key, Secret and Cluster in .env file</p>
+                                        <p><b>Channel:</b> channel-order</p>
+                                        <p><b>Event:</b> newOrderEvent</p>
                                     </div>
 
 
@@ -81,12 +83,12 @@
 {{--                                    </div>--}}
 
                                     <!-- Submit Field -->
-                                    <div class="form-group mt-4 col-12 text-right">
-                                        <button type="submit" class="btn btn-primary">
-                                            <i class="fa fa-save"></i> Save Payment
-                                        </button>
-                                        <a href="#" class="btn btn-default"><i class="fa fa-undo"></i> Cancel</a>
-                                    </div>
+{{--                                    <div class="form-group mt-4 col-12 text-right">--}}
+{{--                                        <button type="submit" class="btn btn-primary">--}}
+{{--                                            <i class="fa fa-save"></i> Save Payment--}}
+{{--                                        </button>--}}
+{{--                                        <a href="#" class="btn btn-default"><i class="fa fa-undo"></i> Cancel</a>--}}
+{{--                                    </div>--}}
                                 </div>
                             </form>
 
